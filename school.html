@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Swami Vivekanand Gyan Jyoti School | स्वामी विवेकानन्द ज्ञान ज्योति स्कूल</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Noto Sans Devanagari", Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+            line-height: 1.7;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: linear-gradient(135deg, #063970, #0b5fa5);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,.2);
+        }
+
+        .top-header {
+            max-width: 1250px;
+            margin: auto;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .school-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+           
+            
+           
+            border: 4px solid #ffd700;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .logo img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .school-title h1 {
+            font-size: 27px;
+            line-height: 1.35;
+        }
+
+        .school-title h2 {
+            font-size: 20px;
+            color: #ffe36e;
+        }
+
+        .location {
+            font-size: 14px;
+            color: #e7f3ff;
+        }
+
+        /* ================= NAVIGATION ================= */
+
+        nav {
+            background: #042c55;
+        }
+
+        nav ul {
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 13px 20px;
+            display: block;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            background: #ff9800;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 570px;
+
+            background:
+                linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.55)),
+                url("svns.jpeg")
+                center/cover no-repeat;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 30px;
+        }
+
+        .hero-content {
+            max-width: 950px;
+        }
+
+        .hero-content h1 {
+            font-family: Arial, sans-serif;
+            font-size: 47px;
+            margin-bottom: 8px;
+        }
+
+        .hero-content h2 {
+            font-size: 34px;
+            color: #ffd740;
+            margin-bottom: 25px;
+        }
+
+        .admission {
+            display: inline-block;
+            padding: 15px 35px;
+            background: #ff9800;
+            color: white;
+            border-radius: 35px;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(0,0,0,.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* ================= COMMON ================= */
+
+        section {
+            padding: 70px 20px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            color: #063970;
+            font-size: 32px;
+            display: inline-block;
+            border-bottom: 4px solid #ff9800;
+            padding-bottom: 5px;
+        }
+
+        .section-title p {
+            margin-top: 8px;
+            color: #666;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,.15);
+        }
+
+        .about-text h3 {
+            color: #063970;
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        /* ================= FEATURES ================= */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 28px 20px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+            transition: .3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .feature-icon {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card h3 {
+            color: #063970;
+            margin-bottom: 8px;
+        }
+
+        /* ================= CLASSES ================= */
+
+        .classes {
+            background: #eef5fb;
+        }
+
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .class-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px 15px;
+            text-align: center;
+            border-top: 5px solid #0878d1;
+            box-shadow: 0 4px 15px rgba(0,0,0,.07);
+            transition: .3s;
+        }
+
+        .class-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .class-card h3 {
+            color: #063970;
+        }
+
+        /* ================= MEDIUM ================= */
+
+        .medium-section {
+            background: white;
+        }
+
+        .medium-box {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .medium-card {
+            background: #f5f9ff;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border-top: 5px solid #0878d1;
+            box-shadow: 0 5px 18px rgba(0,0,0,.07);
+        }
+
+        .medium-card h3 {
+            color: #063970;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .medium-card p {
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+
+        /* ================= TOUR ================= */
+
+        .tour {
+            background: #f8fbff;
+        }
+
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .tour-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(0,0,0,.08);
+            border-top: 5px solid #0878d1;
+            transition: .3s;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tour-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .tour-card-content {
+            padding: 18px;
+            text-align: center;
+        }
+
+        .tour-card h3 {
+            color: #063970;
+            margin-bottom: 7px;
+            font-size: 21px;
+        }
+
+        .tour-card p {
+            color: #555;
+            font-size: 15px;
+        }
+
+        /* ================= TALENT SEARCH ================= */
+
+        .talent {
+            color: white;
+
+            background:
+                linear-gradient(rgba(3,35,70,.72), rgba(3,35,70,.78)),
+                url("talent baground.png")
+                center/cover no-repeat;
+
+            background-attachment: fixed;
+        }
+
+        .talent .section-title h2 {
+            color: #ffd740;
+            border-color: #ff9800;
+        }
+
+        .talent .section-title p {
+            color: white;
+        }
+
+        .talent-box {
+            max-width: 950px;
+            margin: auto;
+            background: rgba(255,255,255,.10);
+            border: 1px solid rgba(255,255,255,.30);
+            padding: 38px;
+            border-radius: 18px;
+            text-align: center;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,.25);
+        }
+
+        .talent-box h3 {
+            font-size: 29px;
+            color: #ffd740;
+            margin-bottom: 15px;
+        }
+
+        .talent-box > p {
+            font-size: 17px;
+            margin-bottom: 25px;
+        }
+
+        /* NEW LIMITED POINTS */
+
+        .talent-points {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            text-align: center;
+        }
+
+        .talent-points div {
+            padding: 20px 15px;
+            border: 2px solid rgba(255,215,64,.75);
+            border-radius: 12px;
+            background: rgba(255,255,255,.10);
+            font-size: 16px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .talent-points div:hover {
+            background: rgba(255,255,255,.20);
+            transform: translateY(-5px);
+            border-color: #ffffff;
+        }
+
+        /* ================= GALLERY ================= */
+
+        .gallery {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: .3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,.1);
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.03);
+        }
+
+        /* ================= MANAGEMENT ================= */
+
+        .management {
+            background: #eef5fb;
+        }
+
+        .management-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .person {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(0,0,0,.08);
+        }
+
+        .person img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #0878d1;
+            margin-bottom: 12px;
+        }
+
+        .person h3 {
+            color: #063970;
+            font-size: 23px;
+        }
+
+        .person p {
+            color: #555;
+            font-size: 17px;
+        }
+
+        /* ================= NOTICE ================= */
+
+        .notice {
+            background: white;
+        }
+
+        .notice-box {
+            max-width: 900px;
+            margin: auto;
+            border-left: 6px solid #ff9800;
+            background: #fff8e8;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .notice-box h3 {
+            color: #d97700;
+            margin-bottom: 10px;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            background: #eef5fb;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,.07);
+        }
+
+        .contact-card .icon {
+            font-size: 35px;
+        }
+
+        .contact-card h3 {
+            color: #063970;
+            margin-bottom: 8px;
+        }
+
+        .contact-card a {
+            color: #0878d1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #042c55;
+            color: white;
+            text-align: center;
+            padding: 35px 15px;
+        }
+
+        footer h2 {
+            color: #ffd740;
+            margin-bottom: 5px;
+            font-family: Arial, sans-serif;
+        }
+
+        footer p {
+            margin: 7px;
+            color: #dbeeff;
+        }
+
+        .footer-phone {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .footer-phone a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .whatsapp-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            font-size: 18px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .call-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: #0878d1;
+            color: white;
+            border-radius: 50%;
+            font-size: 17px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width: 850px) {
+
+            .top-header {
+                padding: 12px;
+            }
+
+            .school-title h1 {
+                font-size: 22px;
+            }
+
+            .school-title h2 {
+                font-size: 17px;
+            }
+
+            .about-grid,
+            .management-grid,
+            .medium-box {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .class-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .talent-points {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tour-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-content h1 {
+                font-size: 35px;
+            }
+
+            .hero-content h2 {
+                font-size: 26px;
+            }
+        }
+
+        @media(max-width: 550px) {
+
+            .school-title {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                width: 65px;
+                height: 65px;
+                font-size: 28px;
+            }
+
+            .school-title h1 {
+                font-size: 19px;
+            }
+
+            .school-title h2 {
+                font-size: 16px;
+            }
+
+            .location {
+                font-size: 12px;
+            }
+
+            nav a {
+                padding: 9px 10px;
+                font-size: 13px;
+            }
+
+            .features,
+            .class-grid,
+            .gallery-grid,
+            .talent-points,
+            .tour-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 500px;
+            }
+
+            .hero-content h1 {
+                font-size: 27px;
+            }
+
+            .hero-content h2 {
+                font-size: 21px;
+            }
+
+            .admission {
+                font-size: 19px;
+                padding: 13px 25px;
+            }
+
+            .talent-box {
+                padding: 25px 18px;
+            }
+
+            .footer-phone a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="top-header">
+
+        <div class="school-title">
+
+            <div class="logo">
+                <img src="LOGO.jpeg">
+            </div>
+
+            <div>
+
+                <h1>
+                    SWAMI VIVEKANAND GYAN JYOTI SCHOOL
+                </h1>
+
+                <h2>
+                    स्वामी विवेकानन्द ज्ञान ज्योति स्कूल
+                </h2>
+
+                <div class="location">
+                    KATAEECHAWAR, BANAFA - MAU (U.P)
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ENGLISH NAVIGATION -->
+
+    <nav>
+
+        <ul>
+
+            <li><a href="#home">Home</a></li>
+
+            <li><a href="#about">About</a></li>
+
+           
+
+            <li><a href="#tour">Tour</a></li>
+            <li><a href="#talent">Talent Search</a></li>
+
+            <li><a href="#gallery">Gallery</a></li>
+
+            <li><a href="#contact">Contact</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<!-- ================= FIRST PAGE ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>
+            SWAMI VIVEKANAND GYAN JYOTI SCHOOL
+            
+        </h1>
+
+        <h2>
+            स्वामी विवेकानन्द ज्ञान ज्योति स्कूल
+        </h2>
+
+        <div class="admission">
+            Admission Open 2026-27
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                विद्यालय के बारे में
+            </h2>
+
+            <p>
+                हमारा उद्देश्य बच्चों को गुणवत्तापूर्ण शिक्षा एवं संस्कार प्रदान करना है।
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-img">
+
+                <img
+                    src="WhatsApp Image 2026-08-13 at 22.53.41.jpeg"
+                    alt="विद्यालय भवन">
+
+            </div>
+
+
+            <div class="about-text">
+
+                <h3>
+                    हमारे विद्यालय में आपका स्वागत है
+                </h3>
+
+                <p>
+                    स्वामी विवेकानन्द ज्ञान ज्योति स्कूल विद्यार्थियों के
+                    सर्वांगीण विकास के लिए समर्पित एक शिक्षण संस्थान है।
+                </p>
+
+                <p>
+                    हमारा प्रयास है कि प्रत्येक विद्यार्थी को शिक्षा के साथ-साथ
+                    अच्छे संस्कार, अनुशासन, आत्मविश्वास और जीवन में आगे बढ़ने
+                    के लिए आवश्यक अवसर प्राप्त हों।
+                </p>
+
+                <p>
+                    विद्यालय में नर्सरी से कक्षा 12वीं तक विद्यार्थियों की
+                    शिक्षा एवं विकास पर विशेष ध्यान दिया जाता है।
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>हमारी विशेषताएँ</h2>
+        </div>
+
+
+        <div class="features">
+
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>गुणवत्तापूर्ण शिक्षा</h3>
+                <p>विद्यार्थियों को बेहतर एवं गुणवत्तापूर्ण शिक्षा प्रदान करना।</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎓</div>
+                <h3>सर्वांगीण विकास</h3>
+                <p>शिक्षा के साथ खेल, कला एवं अन्य गतिविधियों पर ध्यान।</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💻</div>
+                <h3>आधुनिक शिक्षा</h3>
+                <p>आधुनिक तकनीक एवं शिक्षण पद्धतियों का उपयोग।</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🏫</div>
+                <h3>अनुशासित वातावरण</h3>
+                <p>विद्यार्थियों के लिए सुरक्षित एवं अनुशासित वातावरण।</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚽</div>
+                <h3>खेलकूद</h3>
+                <p>विद्यार्थियों की शारीरिक क्षमता एवं टीम भावना का विकास।</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🌱</div>
+                <h3>संस्कार एवं मूल्य</h3>
+                <p>विद्यार्थियों में अच्छे संस्कार एवं नैतिक मूल्यों का विकास।</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CLASSES ================= -->
+
+<section class="classes" id="classes">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                विद्यालय की कक्षाएँ
+            </h2>
+
+            <p>
+                नर्सरी से कक्षा 12वीं तक शिक्षा की सुविधा
+            </p>
+
+        </div>
+
+
+        <div class="class-grid">
+
+            <div class="class-card">
+                <h3>नर्सरी</h3>
+                <p>प्रारंभिक शिक्षा</p>
+            </div>
+
+            <div class="class-card">
+                <h3>एल.के.जी.</h3>
+                <p>प्रारंभिक शिक्षा</p>
+            </div>
+
+            <div class="class-card">
+                <h3>यू.के.जी.</h3>
+                <p>प्रारंभिक शिक्षा</p>
+            </div>
+
+            <div class="class-card">
+                <h3>कक्षा 1 से 5</h3>
+                <p>प्राथमिक शिक्षा</p>
+            </div>
+
+            <div class="class-card">
+                <h3>कक्षा 6 से 8</h3>
+                <p>उच्च प्राथमिक शिक्षा</p>
+            </div>
+
+            <div class="class-card">
+                <h3>कक्षा 9 से 10</h3>
+                <p>माध्यमिक शिक्षा</p>
+            </div>
+
+            <div class="class-card">
+                <h3>कक्षा 11</h3>
+                <p>उच्च माध्यमिक शिक्षा</p>
+            </div>
+
+            <div class="class-card">
+                <h3>कक्षा 12</h3>
+                <p>उच्च माध्यमिक शिक्षा</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MEDIUM ================= -->
+
+<section class="medium-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                शिक्षण माध्यम
+            </h2>
+
+        </div>
+
+
+        <div class="medium-box">
+
+            <div class="medium-card">
+
+                <h3>
+                    नर्सरी से कक्षा 5वीं
+                </h3>
+
+                <p>
+                    English Medium
+                </p>
+
+            </div>
+
+
+            <div class="medium-card">
+
+                <h3>
+                    कक्षा 6वीं से 12वीं
+                </h3>
+
+                <p>
+                    Hindi Medium
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= TOUR ================= -->
+
+<section class="tour" id="tour">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>शैक्षिक भ्रमण</h2>
+            <p>विद्यालय के शैक्षिक भ्रमण की गतिविधियाँ</p>
+        </div>
+
+        <div class="tour-grid">
+
+            <div class="tour-card"><img src="tour1.jpeg" alt="शैक्षिक भ्रमण"></div>
+            <div class="tour-card"><img src="tour2.jpeg" alt="शैक्षिक भ्रमण"></div>
+            <div class="tour-card"><img src="tour3.jpeg" alt="शैक्षिक भ्रमण"></div>
+            <div class="tour-card"><img src="tour..jpeg" alt="शैक्षिक भ्रमण"></div>
+            <div class="tour-card"><img src="tour5.jpeg" alt="शैक्षिक भ्रमण"></div>
+            <div class="tour-card"><img src="tour6.jpeg" alt="शैक्षिक भ्रमण"></div>
+            <div class="tour-card"><img src="tour7.jpeg" alt="शैक्षिक भ्रमण"></div>
+            <div class="tour-card"><img src="tour8.jpeg" alt="शैक्षिक भ्रमण"></div>
+            <div class="tour-card"><img src="tourlko2.jpeg" alt="शैक्षिक भ्रमण"></div>
+            <div class="tour-card"><img src="tour4.jpeg" alt="शैक्षिक भ्रमण"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TALENT SEARCH ================= -->
+
+<section class="talent" id="talent">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                जिला स्तरीय प्रतिभा खोज प्रतियोगिता
+            </h2>
+
+            <p>
+                विद्यार्थियों की प्रतिभा को पहचानने एवं प्रोत्साहित करने का विशेष प्रयास
+            </p>
+
+        </div>
+
+
+        <div class="talent-box">
+
+            <h3>
+                जिला स्तरीय प्रतिभा खोज प्रतियोगिता
+            </h3>
+
+            <p>
+                विद्यार्थियों की प्रतिभा को पहचानने और उन्हें
+                आगे बढ़ने के अवसर प्रदान करने के उद्देश्य से
+                जिला स्तरीय प्रतिभा खोज प्रतियोगिता का आयोजन किया जाता है।
+            </p>
+
+
+            <!-- LIMITED POINTS -->
+
+            <div class="talent-points">
+
+                <div>
+                    निष्पक्ष परीक्षा का आयोजन
+                </div>
+
+                <div>
+                    प्रतिभाशाली विद्यार्थियों की पहचान
+                </div>
+
+                <div>
+                    जिला स्तर पर प्रतियोगिता
+                </div>
+
+                <div>
+                    उत्कृष्ट विद्यार्थियों का सम्मान
+                </div>
+
+                <div>
+                    पुरस्कार एवं प्रमाण-पत्र
+                </div>
+
+                <div>
+                    विद्यार्थियों को आगे बढ़ने का अवसर
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= GALLERY ================= -->
+
+<section class="gallery" id="gallery">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                चित्र दीर्घा
+            </h2>
+
+            <p>
+                विद्यालय की गतिविधियों एवं उपलब्धियों की झलक
+            </p>
+
+        </div>
+
+
+        <div class="gallery-grid">
+
+            <img
+                src="gallery10.jpeg"
+                alt="विद्यालय गतिविधि">
+
+            <img
+                src="gallery11.jpeg"
+                alt="विद्यालय गतिविधि">
+
+            <img
+                src="gallery3.jpeg"
+                alt="विद्यालय विद्यार्थी">
+               
+
+            <img
+                src="gallery5.jpeg"
+                alt="विद्यालय गतिविधि">
+
+            <img
+                src="gallery2.jpeg"
+                alt="विद्यालय गतिविधि">
+
+            <img
+                src="gallery7.jpeg"
+                alt="विद्यालय गतिविधि">
+                 <img src="gallery.3.jpeg" alt="विद्यालय गतिविधि">
+                  <img src="gallery.5.jpeg" alt="विद्यालय गतिविधि">
+                   <img src="gallery.4.jpeg" alt="विद्यालय गतिविधि">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MANAGEMENT ================= -->
+
+<section class="management" id="management">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                विद्यालय प्रबंधन
+            </h2>
+
+        </div>
+
+
+        <div class="management-grid">
+
+            <div class="person">
+
+                <img
+                    src="new manager.jpeg"
+                    alt="प्रबंधक">
+
+                <h3>
+                     शैलेन्द्र सिंह
+                </h3>
+
+                <p>
+                    प्रबंधक<br>
+                    <strong>(B.Ed)</strong>
+                </p>
+
+            </div>
+
+
+            <div class="person">
+
+                <img
+                    src="WhatsApp Image 2026-08-20 at 14.01.10.jpeg"
+                    alt="प्रधानाचार्य">
+
+                <h3>
+                  आत्मा प्रसाद
+                </h3>
+
+                <p>
+                    प्रधानाचार्य<br>
+                    <strong>(B.ED)</strong>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= NOTICE ================= -->
+
+<section class="notice">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                सूचना पट्ट
+            </h2>
+
+        </div>
+
+
+        <div class="notice-box">
+
+            <h3>
+                महत्वपूर्ण सूचना
+            </h3>
+
+            <p>
+                विद्यालय में प्रवेश नर्सरी से कक्षा 12वीं तक उपलब्ध है।
+                प्रवेश एवं अन्य जानकारी के लिए विद्यालय कार्यालय से संपर्क करें।
+            </p>
+
+            <p>
+                जिला स्तरीय प्रतिभा खोज प्रतियोगिता से संबंधित सूचना
+                समय-समय पर इसी वेबसाइट पर प्रकाशित की जाएगी।
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                संपर्क करें
+            </h2>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+            <div class="contact-card">
+
+                <div class="icon">
+                    📍
+                </div>
+
+                <h3>
+                    विद्यालय का पता
+                </h3>
+
+                <p>
+                    KATAEECHAWAR,<br>
+                    BANAFA - MAU (U.P)
+                </p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="icon">
+                    📞
+                </div>
+
+                <h3>
+                    संपर्क नंबर
+                </h3>
+
+                <p>
+
+                    <a href="tel:+919415326628">
+                        +91 9415326628
+                    </a>
+
+                    <br>
+
+                    <a href="tel:+919918949688">
+                        +91 9918949688
+                    </a>
+
+                </p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="icon">
+                    📧
+                </div>
+
+                <h3>
+                    ई-मेल
+                </h3>
+
+                <p>
+
+                    <a href="mailto:swamivivekanandgyanjyotischool@gmail.com">
+                        swamivivekanandgjschool@gmail.com
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>
+        SWAMI VIVEKANAND GYAN JYOTI SCHOOL
+    </h2>
+
+    <p>
+        स्वामी विवेकानन्द ज्ञान ज्योति स्कूल
+    </p>
+
+    <p>
+        KATAEECHAWAR, BANAFA - MAU (U.P)
+    </p>
+
+    <p>
+        नर्सरी से कक्षा 12वीं तक
+    </p>
+
+
+    <!-- PHONE NUMBERS WITH ICONS -->
+
+    <div class="footer-phone">
+
+        <!-- WHATSAPP -->
+
+        <a href="https://wa.me/919415326628" target="_blank">
+
+            <span class="whatsapp-icon">
+             ☎️
+            </span>
+
+            +91 9415326628
+
+        </a>
+
+
+        <!-- CALL -->
+
+        <a href="tel:+919918949688">
+
+            <span class="call-icon">
+                📞
+            </span>
+
+            +91 9918949688
+
+        </a>
+
+    </div>
+
+
+    <p>
+        📧 swamivivekanandgjschool@gmail.com
+    </p>
+
+    <br>
+
+    <p>
+        © 2026 स्वामी विवेकानन्द ज्ञान ज्योति स्कूल |
+        सर्वाधिकार सुरक्षित
+    </p>
+
+</footer>
+
+
+</body>
+</html>
