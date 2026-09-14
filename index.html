@@ -159,6 +159,349 @@
             box-shadow: 0 5px 20px rgba(0,0,0,.3);
             animation: pulse 2s infinite;
         }
+        
+     /* ================= IMPORTANT NOTICE ================= */
+
+.form-notice {
+    width: calc(100% - 55px);
+    max-width: 1400px;
+    margin: 6px auto 10px;
+    padding: 10px 18px;
+
+    background: linear-gradient(
+        90deg,
+        #fffef5,
+        #fffdf0,
+        #fffef5
+    );
+
+    border: 2px solid #f2cf35;
+    border-radius: 12px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+/* ================= COMMON ITEM ================= */
+
+.notice-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+
+/* ================= ICON ================= */
+
+.notice-icon {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 34px;
+
+    font-size: 24px;
+    line-height: 1;
+
+    margin-right: 8px;
+}
+
+
+/* ================= IMPORTANT NOTICE ================= */
+
+.notice-important {
+    flex: 0 0 auto;
+}
+
+.notice-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffd21f;
+    color: #063970;
+
+    padding: 8px 17px;
+    border-radius: 25px;
+
+    font-size: 18px;
+    font-weight: 800;
+
+    line-height: 1.2;
+    white-space: nowrap;
+
+    box-sizing: border-box;
+}
+
+
+/* ================= DIVIDER ================= */
+
+.notice-divider {
+    width: 2px;
+    height: 38px;
+
+    background: #9b9b9b;
+
+    flex: 0 0 2px;
+
+    margin: 0 16px;
+}
+
+
+/* ================= COMPETITION ================= */
+
+.notice-competition {
+    flex: 0 1 280px;
+    text-align: center;
+}
+
+.notice-competition .notice-text {
+    color: #063970;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    line-height: 1.35;
+    text-align: center;
+
+    white-space: normal;
+}
+
+
+/* ================= FORM SECTION ================= */
+
+.notice-form {
+    flex: 1 1 500px;
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.notice-form-content {
+    min-width: 0;
+    max-width: 100%;
+    text-align: center;
+}
+
+.notice-main-text {
+    color: #063970;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    line-height: 1.4;
+    text-align: center;
+
+    overflow-wrap: break-word;
+}
+
+
+/* ================= DATE ================= */
+
+.notice-date {
+    color: #e65100;
+    font-weight: 900;
+
+    white-space: nowrap;
+}
+
+
+/* ================= HELP LINE ================= */
+
+.notice-help {
+    margin-top: 4px;
+
+    color: #063970;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    line-height: 1.35;
+    text-align: center;
+
+    overflow-wrap: break-word;
+}
+
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1050px) {
+
+    .form-notice {
+        width: calc(100% - 30px);
+        padding: 9px 12px;
+    }
+
+    .notice-divider {
+        margin: 0 10px;
+    }
+
+    .notice-icon {
+        width: 30px;
+        height: 30px;
+        flex-basis: 30px;
+
+        font-size: 22px;
+        margin-right: 5px;
+    }
+
+    .notice-title {
+        font-size: 15px;
+        padding: 7px 12px;
+    }
+
+    .notice-competition .notice-text,
+    .notice-main-text {
+        font-size: 15px;
+    }
+
+    .notice-help {
+        font-size: 12px;
+    }
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    .form-notice {
+        width: calc(100% - 12px);
+
+        padding: 10px 7px;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 8px;
+
+        justify-content: center;
+    }
+
+    .notice-important {
+        flex: 0 0 auto;
+    }
+
+    .notice-icon {
+        width: 27px;
+        height: 27px;
+        flex-basis: 27px;
+
+        font-size: 20px;
+        margin-right: 4px;
+    }
+
+    .notice-title {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
+    .notice-divider {
+        width: 2px;
+        height: 27px;
+
+        flex: 0 0 2px;
+        margin: 0 2px;
+    }
+
+    .notice-competition {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .notice-competition .notice-text {
+        font-size: 13px;
+        line-height: 1.35;
+    }
+
+    .notice-form {
+        flex: 0 0 100%;
+        width: 100%;
+
+        box-sizing: border-box;
+        justify-content: center;
+    }
+
+    .notice-form-content {
+        width: 100%;
+    }
+
+    .notice-main-text {
+        font-size: 13px;
+        line-height: 1.45;
+    }
+
+    .notice-help {
+        margin-top: 5px;
+
+        font-size: 11px;
+        line-height: 1.4;
+
+        padding: 0 4px;
+    }
+
+    .notice-date {
+        white-space: nowrap;
+    }
+
+    .desktop-break {
+        display: none;
+    }
+}
+
+
+/* ================= VERY SMALL MOBILE ================= */
+
+@media (max-width: 400px) {
+
+    .form-notice {
+        padding: 8px 5px;
+        gap: 6px;
+    }
+
+    .notice-icon {
+        width: 24px;
+        height: 24px;
+        flex-basis: 24px;
+
+        font-size: 18px;
+    }
+
+    .notice-title {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+
+    .notice-competition .notice-text,
+    .notice-main-text {
+        font-size: 12px;
+    }
+
+    .notice-help {
+        font-size: 10px;
+    }
+
+    .notice-divider {
+        height: 24px;
+    }
+}
 
         @keyframes pulse {
             0% {
@@ -775,7 +1118,7 @@
                 </h2>
 
                 <div class="location">
-                    KATAEECHAWAR, BANAFA - MAU (U.P)
+                    KATAICHAWAR, BANAFA - MAU (U.P)
                 </div>
 
             </div>
@@ -809,6 +1152,46 @@
     </nav>
 
 </header>
+    <div class="form-notice">
+
+    <div class="notice-item notice-important">
+        <span class="notice-icon">📢</span>
+        <span class="notice-title">महत्वपूर्ण सूचना</span>
+    </div>
+
+    <div class="notice-divider"></div>
+
+    <div class="notice-item notice-competition">
+        <span class="notice-icon">📅</span>
+        <span class="notice-text">
+            जिला स्तरीय प्रतिभा खोज<br class="desktop-break">
+            प्रतियोगिता 2026
+        </span>
+    </div>
+
+    <div class="notice-divider"></div>
+
+    <div class="notice-item notice-form">
+        <span class="notice-icon">📄</span>
+
+        <div class="notice-form-content">
+
+            <div class="notice-main-text">
+                ऑनलाइन एवं ऑफलाइन फॉर्म भरने की प्रक्रिया
+                <br>
+                <span class="notice-date">01 अक्टूबर 2026</span>
+                से प्रारम्भ होंगे।
+            </div>
+
+            <div class="notice-help">
+                अधिक जानकारी के लिए विद्यालय हेल्पलाइन नंबर 📞 पर संपर्क करें।
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
 
 
 <!-- ================= FIRST PAGE ================= -->
@@ -826,13 +1209,6 @@
             स्वामी विवेकानन्द ज्ञान ज्योति स्कूल
         </h2>
 
-       <a
-    href="https://forms.gle/JVzxGPKAcvQU1Mop6"
-    target="_blank"
-    class="admission"
->
-    Admission Open 2026-27
-</a>
 
     </div>
 
@@ -1117,11 +1493,14 @@
         <div class="section-title">
 
             <h2>
-                जिला स्तरीय प्रतिभा खोज प्रतियोगिता
+                जिला स्तरीय प्रतिभा खोज प्रतियोगिता सोलहवाँ संस्करण 2026
             </h2>
 
+             <p>
+               जिला स्तरीय प्रतिभा खोज प्रतियोगिता 2026 के लिए ऑनलाइन एवं ऑफलाइन फॉर्म भरने की प्रक्रिया 01 अक्टूबर 2026 से प्रारम्भ होगी।
+            </p>
             <p>
-                विद्यार्थियों की प्रतिभा को पहचानने एवं प्रोत्साहित करने का विशेष प्रयास
+                अधिक जानकारी के लिए विद्यालय हेल्पलाइन नंबर 📞 पर संपर्क करें।
             </p>
 
         </div>
@@ -1130,7 +1509,7 @@
         <div class="talent-box">
 
             <h3>
-                जिला स्तरीय प्रतिभा खोज प्रतियोगिता
+                जिला स्तरीय प्रतिभा खोज प्रतियोगिता सोलहवाँ संस्करण 2026
             </h3>
 
             <p>
@@ -1299,14 +1678,14 @@
                 महत्वपूर्ण सूचना
             </h3>
 
-            <p>
-                विद्यालय में प्रवेश नर्सरी से कक्षा 12वीं तक उपलब्ध है।
-                प्रवेश एवं अन्य जानकारी के लिए विद्यालय कार्यालय से संपर्क करें।
+             <p>
+               जिला स्तरीय प्रतिभा खोज प्रतियोगिता 2026 के लिए ऑनलाइन एवं ऑफलाइन फॉर्म 
+               भरने की प्रक्रिया 01 अक्टूबर 2026 से प्रारम्भ होगी।
             </p>
 
             <p>
-                जिला स्तरीय प्रतिभा खोज प्रतियोगिता से संबंधित सूचना
-                समय-समय पर इसी वेबसाइट पर प्रकाशित की जाएगी।
+               परीक्षा से संबंधित आवश्यक जानकारी, नियम एवं दिशा-निर्देश विद्यालय की वेबसाइट पर समय-समय पर उपलब्ध कराए जाएंगे। </p>
+<p>अधिक जानकारी के लिए विद्यालय हेल्पलाइन नंबर 📞 पर संपर्क करें।
             </p>
 
         </div>
@@ -1343,7 +1722,7 @@
 </h3>
 
 <p>
-    KATAEECHAWAR, <br>
+    KATAICHAWAR, <br>
     BANAFA - MAU (U.P)
 </p>
 
@@ -1426,7 +1805,7 @@
     </p>
 
     <p>
-        KATAEECHAWAR, BANAFA - MAU (U.P)
+        KATAICHAWAR, BANAFA - MAU (U.P)
     </p>
 
     <p>
