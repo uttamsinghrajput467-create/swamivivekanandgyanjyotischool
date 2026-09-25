@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Login | Swami Vivekanand Gyan Jyoti School</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef4ff,
+                    #ffffff
+                );
+        }
+
+        .login-box {
+            width: 92%;
+            max-width: 430px;
+
+            background: #ffffff;
+
+            padding: 32px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .logo {
+            display: block;
+
+            width: 85px;
+            height: 85px;
+
+            object-fit: contain;
+
+            margin: 0 auto 15px;
+        }
+
+        h1 {
+            margin: 0;
+
+            text-align: center;
+
+            color: #0b3d91;
+
+            font-size: 25px;
+        }
+
+        .school-name {
+            text-align: center;
+
+            margin-top: 8px;
+
+            color: #555;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+        .admin-title {
+            text-align: center;
+
+            margin: 22px 0;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            color: #222;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+
+            padding: 14px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #0b3d91;
+        }
+
+        button {
+            width: 100%;
+
+            margin-top: 18px;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #0b3d91;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #072d6b;
+        }
+
+        button:disabled {
+            background: #888;
+
+            cursor: not-allowed;
+        }
+
+        #message {
+            margin-top: 15px;
+
+            text-align: center;
+
+            font-weight: bold;
+
+            min-height: 22px;
+        }
+
+        .back-link {
+            display: block;
+
+            margin-top: 20px;
+
+            text-align: center;
+
+            color: #0b3d91;
+
+            text-decoration: none;
+
+            font-size: 14px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="login-box">
+
+
+    <!-- SCHOOL LOGO -->
+
+    <img
+        src="LOGO.jpeg"
+        class="logo"
+        alt="School Logo"
+        onerror="this.style.display='none'"
+    >
+
+
+    <h1>
+        Swami Vivekanand Gyan Jyoti School
+    </h1>
+
+
+    <div class="school-name">
+
+        KATAICHAWAR, BANAFA - MAU (U.P)
+
+    </div>
+
+
+    <div class="admin-title">
+
+        🔐 Admin Login
+
+    </div>
+
+
+    <label for="password">
+        Admin Password
+    </label>
+
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Admin Password डालें"
+        autocomplete="current-password"
+    >
+
+
+    <button
+        id="loginButton"
+        onclick="login()"
+    >
+
+        🔐 Login करें
+
+    </button>
+
+
+    <div id="message"></div>
+
+
+    <a
+        href="index.html"
+        class="back-link"
+    >
+
+        ← School Website पर वापस जाएँ
+
+    </a>
+
+
+</div>
+
+
+<script>
+
+
+/* ======================================================
+   GOOGLE APPS SCRIPT URL
+====================================================== */
+
+const GOOGLE_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbxS0YzHXbmOwgipBBpa16eEYPq9UuZMgVpQ-oV_uXclBUhcmvHpXUXsKP5YJmx34Idafg/exec";
+
+
+/* ======================================================
+   ADMIN LOGIN
+====================================================== */
+
+async function login() {
+
+
+    const password =
+        document
+        .getElementById("password")
+        .value
+        .trim();
+
+
+    const message =
+        document
+        .getElementById("message");
+
+
+    const loginButton =
+        document
+        .getElementById("loginButton");
+
+
+    if (!password) {
+
+        message.style.color = "red";
+
+        message.innerText =
+            "कृपया Admin Password डालें।";
+
+        return;
+
+    }
+
+
+    loginButton.disabled = true;
+
+    loginButton.innerText =
+        "⏳ Login हो रहा है...";
+
+
+    message.style.color =
+        "#0b3d91";
+
+    message.innerText =
+        "Server से verification हो रहा है...";
+
+
+    try {
+
+
+        const response =
+            await fetch(
+                GOOGLE_SCRIPT_URL,
+                {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "text/plain;charset=utf-8"
+
+                    },
+
+                    body:
+                        JSON.stringify({
+
+                            action:
+                                "adminLogin",
+
+                            password:
+                                password
+
+                        })
+
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (!result.success) {
+
+
+            message.style.color =
+                "red";
+
+
+            message.innerText =
+                result.message ||
+                "Password गलत है।";
+
+
+            loginButton.disabled =
+                false;
+
+
+            loginButton.innerText =
+                "🔐 Login करें";
+
+
+            return;
+
+        }
+
+
+        /*
+         * Login successful
+         * Token को sessionStorage में रखा जाएगा.
+         */
+
+        sessionStorage.setItem(
+            "ADMIN_TOKEN",
+            result.token
+        );
+
+
+        message.style.color =
+            "green";
+
+
+        message.innerText =
+            "✅ Login Successful";
+
+
+        loginButton.innerText =
+            "Opening Admin Panel...";
+
+
+        setTimeout(
+            function() {
+
+                window.location.href =
+                    "admin-desk-slip.html";
+
+            },
+            500
+        );
+
+
+    } catch (error) {
+
+
+        console.error(error);
+
+
+        message.style.color =
+            "red";
+
+
+        message.innerText =
+            "Server से connection नहीं हो पाया।";
+
+
+        loginButton.disabled =
+            false;
+
+
+        loginButton.innerText =
+            "🔐 Login करें";
+
+    }
+
+}
+
+
+/* ======================================================
+   ENTER KEY
+====================================================== */
+
+document
+    .getElementById("password")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                login();
+
+            }
+
+        }
+    );
+
+
+</script>
+
+
+</body>
+
+</html>

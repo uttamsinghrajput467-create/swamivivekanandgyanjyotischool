@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Admin Desk Slip Generator
+    </title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            font-family:
+                Arial,
+                "Noto Sans Devanagari",
+                sans-serif;
+
+            background: #f3f6fb;
+
+            color: #222;
+        }
+
+
+
+        /* ==================================================
+           HEADER
+        ================================================== */
+
+        .header {
+
+            background: #0866d6;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 22px 15px;
+        }
+
+
+        .header h1 {
+
+            margin: 0;
+
+            font-size: 27px;
+        }
+
+
+        .header p {
+
+            margin: 7px 0 0;
+
+            font-size: 16px;
+        }
+
+
+
+        /* ==================================================
+           CONTROL PANEL
+        ================================================== */
+
+        .controls {
+
+            max-width: 1100px;
+
+            margin: 25px auto;
+
+            background: white;
+
+            padding: 20px;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 3px 15px
+                rgba(0,0,0,0.08);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+
+        select {
+
+            padding: 12px 15px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 7px;
+
+            font-size: 15px;
+
+            min-width: 170px;
+        }
+
+
+        button {
+
+            border: none;
+
+            border-radius: 7px;
+
+            padding: 12px 18px;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        .load-btn {
+
+            background: #0866d6;
+
+            color: white;
+        }
+
+
+        .print-btn {
+
+            background: #555;
+
+            color: white;
+        }
+
+
+        .logout-btn {
+
+            background: #d32f2f;
+
+            color: white;
+
+            margin-left: auto;
+        }
+
+
+        button:disabled {
+
+            opacity: 0.5;
+
+            cursor: not-allowed;
+        }
+
+
+
+        /* ==================================================
+           MESSAGE
+        ================================================== */
+
+        #message {
+
+            max-width: 1100px;
+
+            margin: 0 auto 20px;
+
+            padding: 0 10px;
+
+            font-weight: bold;
+        }
+
+
+
+        /* ==================================================
+           DESK SLIP AREA
+        ================================================== */
+
+        #deskSlipsContainer {
+
+            max-width: 1100px;
+
+            margin: 0 auto 40px;
+        }
+
+
+
+        /* ==================================================
+           ONE A4 PAGE
+           4 SLIPS
+        ================================================== */
+
+        .print-page {
+
+            width: 210mm;
+
+            height: 297mm;
+
+            margin: 20px auto;
+
+            background: white;
+
+            padding: 7mm;
+
+            display: grid;
+
+            grid-template-rows:
+                repeat(4, 1fr);
+
+            gap: 4mm;
+
+            box-sizing: border-box;
+
+            page-break-after: always;
+
+            break-after: page;
+
+            box-shadow:
+                0 3px 18px
+                rgba(0,0,0,0.12);
+        }
+
+
+
+        /* ==================================================
+           INDIVIDUAL DESK SLIP
+        ================================================== */
+
+        .desk-slip {
+
+            width: 100%;
+
+            height: 100%;
+
+            border: 1.5px solid #222;
+
+            padding: 4mm 5mm;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background: white;
+
+            page-break-inside: avoid;
+
+            break-inside: avoid;
+        }
+
+
+
+        /* ==================================================
+           DESK NUMBER
+           TOP CENTER
+        ================================================== */
+
+        .desk-number {
+
+            position: absolute;
+
+            top: 2mm;
+
+            left: 0;
+
+            right: 0;
+
+            text-align: center;
+
+            font-size: 10px;
+
+            font-weight: bold;
+
+            color: #555;
+
+            z-index: 20;
+        }
+
+
+
+        /* ==================================================
+           SCHOOL NAME
+        ================================================== */
+
+        .school-name {
+
+            text-align: center;
+
+            color: #0755a5;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            margin-top: 3mm;
+
+            margin-bottom: 1px;
+        }
+
+
+        .school-address {
+
+            text-align: center;
+
+            font-size: 10px;
+
+            margin-bottom: 3px;
+        }
+
+
+
+        /* ==================================================
+           COMPETITION
+        ================================================== */
+
+        .competition {
+
+            text-align: center;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            border-top: 1px solid #222;
+
+            padding-top: 3px;
+
+        }
+
+
+        .competition-sub {
+
+            text-align: center;
+
+            font-size: 9px;
+
+            margin-top: 1px;
+        }
+
+
+
+        /* ==================================================
+           ROLL NUMBER
+        ================================================== */
+
+        .roll-box {
+
+            border: 1.5px solid #222;
+
+            text-align: center;
+
+            margin-top: 4px;
+
+            padding: 2px 5px;
+
+            width: calc(100% - 78px);
+
+            min-height: 43px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+        }
+
+
+        .roll-title {
+
+            font-size: 9px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            line-height: 1;
+        }
+
+
+        .roll-number {
+
+            font-size: 25px;
+
+            font-weight: bold;
+
+            line-height: 1.05;
+
+            margin-top: 2px;
+        }
+
+
+
+        /* ==================================================
+           PHOTO
+        ================================================== */
+
+        .student-photo {
+
+            position: absolute;
+
+            top: 29mm;
+
+            right: 5mm;
+
+            width: 62px;
+
+            height: 72px;
+
+            object-fit: contain;
+
+            object-position: center;
+
+            background: white;
+
+            border: 1px solid #555;
+
+            padding: 1px;
+
+        }
+
+
+        .photo-placeholder {
+
+            position: absolute;
+
+            top: 29mm;
+
+            right: 5mm;
+
+            width: 62px;
+
+            height: 72px;
+
+            border: 1px solid #555;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 9px;
+
+            text-align: center;
+
+            color: #777;
+
+            background: white;
+        }
+
+
+
+        /* ==================================================
+           STUDENT DETAILS
+        ================================================== */
+
+        .student-section {
+
+            margin-top: 4px;
+
+            padding-top: 2px;
+
+            padding-right: 76px;
+
+            min-height: 55px;
+        }
+
+
+        .student-details {
+
+            font-size: 12px;
+
+            line-height: 1.55;
+        }
+
+
+        .student-details div {
+
+            margin-bottom: 1px;
+        }
+
+
+        .student-details strong {
+
+            display: inline-block;
+
+            min-width: 58px;
+
+            font-weight: bold;
+        }
+
+
+
+        /* ==================================================
+           BOTTOM LINE
+        ================================================== */
+
+        .bottom-line {
+
+            position: absolute;
+
+            left: 5mm;
+
+            right: 5mm;
+
+            bottom: 7mm;
+
+            border-top: 1px solid #aaa;
+        }
+
+
+
+        /* ==================================================
+           EMPTY SLOT
+        ================================================== */
+
+        .empty-slot {
+
+            border: 1px dashed #bbb;
+
+            visibility: hidden;
+        }
+
+
+
+        /* ==================================================
+           NO DATA
+        ================================================== */
+
+        .no-data {
+
+            max-width: 700px;
+
+            margin: 40px auto;
+
+            text-align: center;
+
+            color: #555;
+
+            font-size: 17px;
+        }
+
+
+
+        /* ==================================================
+           PRINT
+        ================================================== */
+
+        @media print {
+
+
+            @page {
+
+                size: A4 portrait;
+
+                margin: 0;
+            }
+
+
+            html,
+            body {
+
+                margin: 0;
+
+                padding: 0;
+
+                background: white;
+            }
+
+
+            .no-print {
+
+                display: none !important;
+            }
+
+
+            #deskSlipsContainer {
+
+                margin: 0;
+
+                padding: 0;
+
+                width: 100%;
+
+                max-width: none;
+            }
+
+
+            .print-page {
+
+                width: 210mm;
+
+                height: 297mm;
+
+                min-height: 297mm;
+
+                margin: 0;
+
+                padding: 7mm;
+
+                box-shadow: none;
+
+                display: grid;
+
+                grid-template-rows:
+                    repeat(4, 1fr);
+
+                gap: 4mm;
+
+                page-break-after: always;
+
+                break-after: page;
+            }
+
+
+            .desk-slip {
+
+                page-break-inside: avoid;
+
+                break-inside: avoid;
+            }
+
+        }
+
+
+
+        /* ==================================================
+           MOBILE
+        ================================================== */
+
+        @media screen and (max-width: 800px) {
+
+            .print-page {
+
+                transform-origin: top center;
+
+                width: 210mm;
+
+            }
+
+        }
+
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header no-print">
+
+    <h1>
+        🪑 Admin Desk Slip Generator
+    </h1>
+
+    <p>
+        Swami Vivekanand Gyan Jyoti School
+    </p>
+
+</header>
+
+
+
+<!-- =====================================================
+     CONTROLS
+===================================================== -->
+
+<div class="controls no-print">
+
+
+    <select id="classFilter">
+
+        <option value="">
+            सभी Classes
+        </option>
+
+        <option value="3">
+            Class 3
+        </option>
+
+        <option value="4">
+            Class 4
+        </option>
+
+        <option value="5">
+            Class 5
+        </option>
+
+        <option value="6">
+            Class 6
+        </option>
+
+        <option value="7">
+            Class 7
+        </option>
+
+        <option value="8">
+            Class 8
+        </option>
+
+        <option value="9">
+            Class 9
+        </option>
+
+        <option value="10">
+            Class 10
+        </option>
+
+        <option value="11">
+            Class 11
+        </option>
+
+        <option value="12">
+            Class 12
+        </option>
+
+    </select>
+
+
+
+    <button
+        class="load-btn"
+        onclick="loadStudents()"
+    >
+
+        📋 Students Load करें
+
+    </button>
+
+
+
+    <button
+        id="printButton"
+        class="print-btn"
+        onclick="printSlips()"
+        disabled
+    >
+
+        🖨️ सभी Desk Slips Print करें
+
+    </button>
+
+
+
+    <button
+        class="logout-btn"
+        onclick="logout()"
+    >
+
+        Logout
+
+    </button>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     MESSAGE
+===================================================== -->
+
+<div
+    id="message"
+    class="no-print"
+>
+</div>
+
+
+
+<!-- =====================================================
+     DESK SLIPS
+===================================================== -->
+
+<div id="deskSlipsContainer">
+
+    <div class="no-data">
+
+        अभी कोई student load नहीं हुआ।
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+
+
+/* ======================================================
+   GOOGLE APPS SCRIPT
+====================================================== */
+
+const GOOGLE_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbxS0YzHXbmOwgipBBpa16eEYPq9UuZMgVpQ-oV_uXclBUhcmvHpXUXsKP5YJmx34Idafg/exec";
+
+
+
+/* ======================================================
+   ADMIN TOKEN CHECK
+====================================================== */
+
+const ADMIN_TOKEN =
+    sessionStorage.getItem(
+        "ADMIN_TOKEN"
+    );
+
+
+if (!ADMIN_TOKEN) {
+
+    alert(
+        "Unauthorized Admin Access."
+    );
+
+    window.location.href =
+        "admin-login.html";
+
+}
+
+
+
+/* ======================================================
+   STUDENT DATA
+====================================================== */
+
+let allStudents = [];
+
+
+
+/* ======================================================
+   LOAD STUDENTS
+====================================================== */
+
+async function loadStudents() {
+
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+    const container =
+        document.getElementById(
+            "deskSlipsContainer"
+        );
+
+
+    const printButton =
+        document.getElementById(
+            "printButton"
+        );
+
+
+    message.style.color =
+        "#0755a5";
+
+
+    message.innerText =
+        "⏳ Students data load हो रहा है...";
+
+
+    container.innerHTML =
+        "";
+
+
+    printButton.disabled =
+        true;
+
+
+    try {
+
+
+        const response =
+            await fetch(
+                GOOGLE_SCRIPT_URL,
+                {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "text/plain;charset=utf-8"
+
+                    },
+
+                    body:
+                        JSON.stringify({
+
+                            action:
+                                "getDeskSlips",
+
+                            token:
+                                sessionStorage.getItem(
+                                    "ADMIN_TOKEN"
+                                )
+
+                        })
+
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+
+        if (
+            !result.success
+        ) {
+
+            message.style.color =
+                "red";
+
+
+            message.innerText =
+                result.message ||
+                "Data load नहीं हुआ।";
+
+
+            container.innerHTML = `
+
+                <div class="no-data">
+
+                    ❌ ${escapeHtml(
+                        result.message ||
+                        "Unauthorized Admin Access."
+                    )}
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+
+        allStudents =
+            Array.isArray(
+                result.data
+            )
+                ? result.data
+                : (
+                    Array.isArray(
+                        result.students
+                    )
+                        ? result.students
+                        : []
+                );
+
+
+
+        if (
+            allStudents.length === 0
+        ) {
+
+            message.style.color =
+                "red";
+
+
+            message.innerText =
+                "कोई student नहीं मिला।";
+
+
+            container.innerHTML = `
+
+                <div class="no-data">
+
+                    अभी कोई student available नहीं है।
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+
+        message.style.color =
+            "green";
+
+
+        message.innerText =
+            "✅ " +
+            allStudents.length +
+            " students load हो गए।";
+
+
+        printButton.disabled =
+            false;
+
+
+        renderDeskSlips();
+
+
+    } catch (error) {
+
+
+        console.error(error);
+
+
+        message.style.color =
+            "red";
+
+
+        message.innerText =
+            "❌ Server से data load नहीं हो पाया।";
+
+
+        container.innerHTML = `
+
+            <div class="no-data">
+
+                Server connection error.
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+
+/* ======================================================
+   RENDER DESK SLIPS
+====================================================== */
+
+function renderDeskSlips() {
+
+
+    const container =
+        document.getElementById(
+            "deskSlipsContainer"
+        );
+
+
+    const classFilter =
+        document.getElementById(
+            "classFilter"
+        ).value;
+
+
+    let students =
+        [...allStudents];
+
+
+
+    /* ==================================================
+       CLASS FILTER
+    ================================================== */
+
+    if (classFilter) {
+
+        students =
+            students.filter(
+                function(student) {
+
+                    return String(
+                        student.className ||
+                        student.class ||
+                        ""
+                    ).trim()
+                    ===
+                    String(
+                        classFilter
+                    ).trim();
+
+                }
+            );
+
+    }
+
+
+
+    if (
+        students.length === 0
+    ) {
+
+        container.innerHTML = `
+
+            <div class="no-data">
+
+                इस Class में कोई student नहीं मिला।
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+
+    /* ==================================================
+       GROUP BY CLASS
+       ताकि अलग class एक page पर mix न हो
+    ================================================== */
+
+    const classGroups =
+        {};
+
+
+
+    students.forEach(
+        function(student) {
+
+
+            const className =
+                String(
+                    student.className ||
+                    student.class ||
+                    "Unknown"
+                ).trim();
+
+
+
+            if (
+                !classGroups[className]
+            ) {
+
+                classGroups[className] =
+                    [];
+
+            }
+
+
+
+            classGroups[className].push(
+                student
+            );
+
+        }
+    );
+
+
+
+    /* ==================================================
+       CLASS NUMERIC ORDER
+    ================================================== */
+
+    const classNames =
+        Object.keys(
+            classGroups
+        ).sort(
+            function(a, b) {
+
+                const numA =
+                    parseInt(a) || 999;
+
+
+                const numB =
+                    parseInt(b) || 999;
+
+
+                return numA - numB;
+
+            }
+        );
+
+
+
+    container.innerHTML =
+        "";
+
+
+
+    let globalDeskNumber =
+        1;
+
+
+
+    /* ==================================================
+       EACH CLASS
+    ================================================== */
+
+    classNames.forEach(
+        function(className) {
+
+
+            const classStudents =
+                classGroups[
+                    className
+                ];
+
+
+
+            /*
+             * IMPORTANT
+             *
+             * एक A4 में 4 students
+             */
+
+            for (
+                let i = 0;
+                i < classStudents.length;
+                i += 4
+            ) {
+
+
+                const pageStudents =
+                    classStudents.slice(
+                        i,
+                        i + 4
+                    );
+
+
+
+                const page =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                page.className =
+                    "print-page";
+
+
+
+                /* ======================================
+                   4 STUDENTS
+                ====================================== */
+
+                pageStudents.forEach(
+                    function(student) {
+
+
+                        const slip =
+                            createDeskSlip(
+                                student,
+                                globalDeskNumber
+                            );
+
+
+                        page.appendChild(
+                            slip
+                        );
+
+
+                        globalDeskNumber++;
+
+                    }
+                );
+
+
+
+                /* ======================================
+                   EMPTY SLOTS
+                   अगर 4 पूरे नहीं हैं
+                ====================================== */
+
+                while (
+                    page.children.length < 4
+                ) {
+
+
+                    const empty =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    empty.className =
+                        "empty-slot desk-slip";
+
+
+                    page.appendChild(
+                        empty
+                    );
+
+                }
+
+
+
+                container.appendChild(
+                    page
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+
+/* ======================================================
+   CREATE ONE DESK SLIP
+====================================================== */
+
+function createDeskSlip(
+    student,
+    deskNumber
+) {
+
+
+    const slip =
+        document.createElement(
+            "div"
+        );
+
+
+    slip.className =
+        "desk-slip";
+
+
+
+    /* ==================================================
+       DATA
+    ================================================== */
+
+    const rollNo =
+        student.rollNo ||
+        student.rollNumber ||
+        "";
+
+
+
+    const studentName =
+        student.studentName ||
+        student.name ||
+        "";
+
+
+
+    const className =
+        student.className ||
+        student.class ||
+        "";
+
+
+
+    const applicationNumber =
+        student.applicationNumber ||
+        student.applicationNo ||
+        "";
+
+
+
+    const photo =
+        student.studentPhoto ||
+        student.photo ||
+        "";
+
+
+
+    /* ==================================================
+       PHOTO HTML
+    ================================================== */
+
+    let photoHTML =
+        "";
+
+
+
+    if (photo) {
+
+
+        photoHTML = `
+
+            <img
+                src="${escapeAttribute(photo)}"
+                class="student-photo"
+                alt="Student Photo"
+
+                onerror="
+                    this.style.display='none';
+                    this.nextElementSibling.style.display='flex';
+                "
+            >
+
+
+            <div
+                class="photo-placeholder"
+                style="display:none;"
+            >
+
+                Photo
+
+            </div>
+
+        `;
+
+
+    } else {
+
+
+        photoHTML = `
+
+            <div class="photo-placeholder">
+
+                Photo
+
+            </div>
+
+        `;
+
+    }
+
+
+
+    /* ==================================================
+       SLIP HTML
+    ================================================== */
+
+    slip.innerHTML = `
+
+
+        <!-- DESK NUMBER -->
+
+        <div class="desk-number">
+
+            Desk Slip #${deskNumber}
+
+        </div>
+
+
+
+        <!-- SCHOOL -->
+
+        <div class="school-name">
+
+            SWAMI VIVEKANAND GYAN JYOTI SCHOOL
+
+        </div>
+
+
+
+        <div class="school-address">
+
+            KATAICHAWAR, BANAFA - MAU (U.P)
+
+        </div>
+
+
+
+        <!-- COMPETITION -->
+
+        <div class="competition">
+
+            जिला स्तरीय प्रतिभा खोज प्रतियोगिता – 2026
+
+        </div>
+
+
+
+        <div class="competition-sub">
+
+            16वीं प्रतिभा खोज प्रतियोगिता
+
+        </div>
+
+
+
+        <!-- ROLL NUMBER -->
+
+        <div class="roll-box">
+
+            <div class="roll-title">
+
+                ROLL NUMBER
+
+            </div>
+
+
+            <div class="roll-number">
+
+                ${escapeHtml(
+                    rollNo
+                )}
+
+            </div>
+
+        </div>
+
+
+
+        <!-- STUDENT PHOTO -->
+
+        ${photoHTML}
+
+
+
+        <!-- STUDENT DETAILS -->
+
+        <div class="student-section">
+
+
+            <div class="student-details">
+
+
+                <div>
+
+                    <strong>Name:</strong>
+
+                    ${escapeHtml(
+                        studentName
+                    )}
+
+                </div>
+
+
+
+                <div>
+
+                    <strong>Class:</strong>
+
+                    ${escapeHtml(
+                        className
+                    )}
+
+                </div>
+
+
+
+                <div>
+
+                    <strong>App. No:</strong>
+
+                    ${escapeHtml(
+                        applicationNumber
+                    )}
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- BOTTOM LINE -->
+
+        <div class="bottom-line"></div>
+
+
+    `;
+
+
+
+    return slip;
+
+}
+
+
+
+/* ======================================================
+   PRINT
+====================================================== */
+
+function printSlips() {
+
+
+    if (
+        allStudents.length === 0
+    ) {
+
+        alert(
+            "पहले Students Load करें।"
+        );
+
+        return;
+
+    }
+
+
+    window.print();
+
+}
+
+
+
+/* ======================================================
+   CLASS FILTER
+====================================================== */
+
+document
+    .getElementById(
+        "classFilter"
+    )
+    .addEventListener(
+        "change",
+        function() {
+
+
+            if (
+                allStudents.length > 0
+            ) {
+
+                renderDeskSlips();
+
+            }
+
+        }
+    );
+
+
+
+/* ======================================================
+   LOGOUT
+====================================================== */
+
+function logout() {
+
+
+    sessionStorage.removeItem(
+        "ADMIN_TOKEN"
+    );
+
+
+    window.location.href =
+        "admin_login.html";
+
+}
+
+
+
+/* ======================================================
+   HTML ESCAPE
+====================================================== */
+
+function escapeHtml(value) {
+
+
+    return String(
+        value ?? ""
+    )
+
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+
+    .replace(
+        /</g,
+        "&lt;"
+    )
+
+    .replace(
+        />/g,
+        "&gt;"
+    )
+
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+
+/* ======================================================
+   ATTRIBUTE ESCAPE
+====================================================== */
+
+function escapeAttribute(value) {
+
+    return escapeHtml(
+        value
+    );
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>
