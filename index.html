@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Swami Vivekanand Gyan Jyoti School | स्वामी विवेकानन्द ज्ञान ज्योति स्कूल</title>
-<link rel="icon" type="image/jpeg" href="LOGO.jpeg">
+
     <style>
         * {
             margin: 0;
@@ -159,7 +159,9 @@
             box-shadow: 0 5px 20px rgba(0,0,0,.3);
             animation: pulse 2s infinite;
         }
-        
+
+
+
      /* ================= IMPORTANT NOTICE ================= */
 
 .form-notice {
@@ -504,6 +506,10 @@
     }
 }
 
+
+
+
+
         @keyframes pulse {
             0% {
                 transform: scale(1);
@@ -720,75 +726,225 @@
             font-size: 15px;
         }
 
-        /* ================= TALENT SEARCH ================= */
+      
+/* ================= TALENT EXAM 2026 ================= */
 
-        .talent {
-            color: white;
+.talent-exam-section {
+    padding: 25px 20px 35px;
+    background: #f5f7fb;
+}
 
-            background:
-                linear-gradient(rgba(3,35,70,.72), rgba(3,35,70,.78)),
-                url("baground3.jpeg")
-                center /cover no-repeat;
+.talent-exam-card {
 
-            background-attachment: fixed;
-        }
+    max-width: 1350px;
+    margin: auto;
 
-        .talent .section-title h2 {
-            color: #ffd740;
-            border-color: #ff9800;
-        }
+    padding: 55px 30px;
 
-        .talent .section-title p {
-            color: white;
-        }
+    text-align: center;
 
-        .talent-box {
-            max-width: 950px;
-            margin: auto;
-            background: rgba(255,255,255,.10);
-            border: 1px solid rgba(255,255,255,.30);
-            padding: 38px;
-            border-radius: 18px;
-            text-align: center;
-            backdrop-filter: blur(4px);
-            box-shadow: 0 10px 30px rgba(0,0,0,.25);
-        }
+    border: 2px solid #d7b91e;
+    border-radius: 22px;
 
-        .talent-box h3 {
-            font-size: 49px;
-            color: #ffd740;
-            margin-bottom: 15px;
-        }
+    background:
+        linear-gradient(
+            rgba(4, 63, 115, 0.90),
+            rgba(3, 52, 100, 0.94)
+        ),
+        url("baground3.png")
+        center / cover no-repeat;
 
-        .talent-box > p {
-            font-size: 17px;
-            margin-bottom: 25px;
-        }
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.20);
 
-        /* NEW LIMITED POINTS */
+    color: white;
+}
 
-        .talent-points {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-            text-align: center;
-        }
 
-        .talent-points div {
-            padding: 20px 15px;
-            border: 2px solid rgba(255,215,64,.75);
-            border-radius: 12px;
-            background: rgba(255,255,255,.10);
-            font-size: 16px;
-            font-weight: 400;
-            transition: .3s;
-        }
+/* TITLE */
 
-        .talent-points div:hover {
-            background: rgba(255,255,255,.20);
-            transform: translateY(-5px);
-            border-color: #ffffff;
-        }
+.talent-exam-heading {
+
+    font-size: 38px;
+    font-weight: 800;
+
+    color: #ffd740;
+
+    margin-bottom: 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* SUBTITLE */
+
+.talent-exam-subtitle {
+
+    font-size: 25px;
+    font-weight: 600;
+
+    color: white;
+
+    margin-bottom: 8px;
+}
+
+
+/* DETAILS */
+
+.talent-exam-details {
+
+    font-size: 20px;
+    font-weight: 600;
+
+    color: #ffffff;
+
+    margin-bottom: 28px;
+}
+
+.talent-exam-details span {
+
+    margin: 0 10px;
+
+    color: #ffd740;
+}
+
+
+/* APPLY BUTTON */
+
+.talent-apply-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px 30px;
+
+    border: none;
+    border-radius: 35px;
+
+    background: #ffae00;
+
+    color: white;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.25);
+
+    transition: .3s;
+}
+
+.talent-apply-btn:hover {
+
+    transform: translateY(-3px) scale(1.02);
+
+    background: #ff9800;
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    .talent-exam-section {
+
+        padding: 15px 8px 25px;
+
+    }
+
+    .talent-exam-card {
+
+        padding: 32px 15px;
+
+        border-radius: 16px;
+
+    }
+
+    .talent-exam-heading {
+
+        font-size: 25px;
+
+        gap: 7px;
+
+        margin-bottom: 13px;
+
+    }
+
+    .talent-exam-subtitle {
+
+        font-size: 17px;
+
+        line-height: 1.5;
+
+    }
+
+    .talent-exam-details {
+
+        font-size: 15px;
+
+        margin-bottom: 22px;
+
+    }
+
+    .talent-exam-details span {
+
+        margin: 0 5px;
+
+    }
+
+    .talent-apply-btn {
+
+        width: 100%;
+
+        padding: 14px 12px;
+
+        font-size: 16px;
+
+    }
+
+}
+
+
+/* VERY SMALL MOBILE */
+
+@media (max-width: 400px) {
+
+    .talent-exam-heading {
+
+        font-size: 22px;
+
+    }
+
+    .talent-exam-subtitle {
+
+        font-size: 15px;
+
+    }
+
+    .talent-exam-details {
+
+        font-size: 14px;
+
+    }
+
+    .talent-apply-btn {
+
+        font-size: 14px;
+
+    }
+
+}
+
+
 
         /* ================= GALLERY ================= */
 
@@ -1142,18 +1298,31 @@
            
 
             <li><a href="#tour">Tour</a></li>
-            <li><a href="#talent">Talent Search</a></li>
+           
+<li>
+    <a href="admin_login.html">🔐 Admin</a>
+</li>
 
             <li><a href="#gallery">Gallery</a></li>
 
+
             <li><a href="#contact">Contact</a></li>
+            
+
+            
+
+             <li><a href="#talent-exam-2026">Talent Search</a></li>
+
+             <li><a href="admit-card.html">Admit Card</a></li>
+
 
         </ul>
 
     </nav>
 
 </header>
-    <div class="form-notice">
+
+<div class="form-notice">
 
     <div class="notice-item notice-important">
         <span class="notice-icon">📢</span>
@@ -1180,8 +1349,8 @@
             <div class="notice-main-text">
                 ऑनलाइन एवं ऑफलाइन फॉर्म भरने की प्रक्रिया
                 <br>
-                <span class="notice-date">01 अक्टूबर 2026</span>
-                से प्रारम्भ होंगे।
+                <span class="notice-date">01 अक्टूबर 2026 से 15 नवंबर 2026</span>
+               तक आवेदन किया जायेगा|
             </div>
 
             <div class="notice-help">
@@ -1210,6 +1379,19 @@
             स्वामी विवेकानन्द ज्ञान ज्योति स्कूल
         </h2>
 
+        <div class="home-talent-card">
+
+    <button
+        type="button"
+        class="home-talent-btn"
+        onclick="openApplicationModal()"
+    >
+        📝 Talent Exam 2026 के लिए आवेदन करें
+    </button>
+
+</div>
+
+      
 
     </div>
 
@@ -1463,6 +1645,7 @@
         </div>
 
         <div class="tour-grid">
+            
 
             <div class="tour-card"><img src="tour1.jpeg" alt="शैक्षिक भ्रमण"></div>
             <div class="tour-card"><img src="tour2.jpeg" alt="शैक्षिक भ्रमण"></div>
@@ -1477,6 +1660,7 @@
             <div class="tour-card"><img src="tour8.jpeg" alt="शैक्षिक भ्रमण"></div>
             <div class="tour-card"><img src="tour4.jpeg" alt="शैक्षिक भ्रमण"></div>
             <div class="tour-card"><img src="gall.1.jpeg" alt="शैक्षिक भ्रमण"></div>
+            
 
         </div>
 
@@ -1485,33 +1669,41 @@
 </section>
 
 
-<!-- ================= TALENT SEARCH ================= -->
+<!-- ================= TALENT EXAM 2026 ================= -->
 
-<section class="talent" id="talent">
+<section id="talent-exam-2026" class="talent-exam-section">
 
-    <div class="container">
+    <div class="talent-exam-card">
 
-        <div class="section-title">
-
-            <h2>
-                जिला स्तरीय प्रतिभा खोज प्रतियोगिता सोलहवाँ संस्करण 2026
-            </h2>
-
-             <p>
-               जिला स्तरीय प्रतिभा खोज प्रतियोगिता 2026 के लिए ऑनलाइन एवं ऑफलाइन फॉर्म भरने की प्रक्रिया 01 अक्टूबर 2026 से प्रारम्भ होगी।
-            </p>
-            <p>
-                अधिक जानकारी के लिए विद्यालय हेल्पलाइन नंबर 📞 पर संपर्क करें।
-            </p>
-
+        <div class="talent-exam-heading">
+            🏆 <span>Talent Exam 2026</span>
         </div>
 
+        <div class="talent-exam-subtitle">
+            जिला स्तरीय प्रतिभा खोज प्रतियोगिता – 2026
+        </div>
 
-        <div class="talent-box">
+        <div class="talent-exam-details">
+            कक्षा 3 से 12
+            <span>|</span>
+            आवेदन शुल्क ₹150
+        </div>
 
-            <h3>
-                जिला स्तरीय प्रतिभा खोज प्रतियोगिता सोलहवाँ संस्करण 2026
-            </h3>
+        <button
+            type="button"
+            class="talent-apply-btn"
+            onclick="openApplicationModal()"
+        >
+            📝 Talent Exam 2026 के लिए आवेदन करें
+        </button>
+
+    </div>
+
+</section>
+
+
+
+           </div>
 
             <p>
                 विद्यार्थियों की प्रतिभा को पहचानने और उन्हें
@@ -1578,7 +1770,7 @@
 
         <div class="gallery-grid">
 
-          <img src="gallery10.jpeg" alt="विद्यालय गतिविधि">
+            <img src="gallery10.jpeg" alt="विद्यालय गतिविधि">
             <img src="gallery11.jpeg"alt="विद्यालय गतिविधि">
             <img src="gallery3.jpeg"alt="विद्यालय विद्यार्थी">
             <img src="gall.2.jpeg"alt="विद्यालय गतिविधि">
@@ -1590,7 +1782,6 @@
                  <img src="gallery5.jpeg"alt="विद्यालय गतिविधि">
                   <img src="gallery.5.jpeg" alt="विद्यालय गतिविधि">
                    <img src="gallery.4.jpeg" alt="विद्यालय गतिविधि">
-
 
         </div>
 
@@ -1628,7 +1819,7 @@
 
                 <p>
                     प्रबंधक<br>
-                    <strong>(B.Ed.)</strong>
+                    <strong>(B.Ed)</strong>
                 </p>
 
             </div>
@@ -1646,7 +1837,7 @@
 
                 <p>
                     प्रधानाचार्य<br>
-                    <strong>(B.Ed.)</strong>
+                    <strong>(B.ED)</strong>
                 </p>
 
             </div>
@@ -1679,7 +1870,7 @@
                 महत्वपूर्ण सूचना
             </h3>
 
-             <p>
+            <p>
                जिला स्तरीय प्रतिभा खोज प्रतियोगिता 2026 के लिए ऑनलाइन एवं ऑफलाइन फॉर्म 
                भरने की प्रक्रिया 01 अक्टूबर 2026 से प्रारम्भ होगी।
             </p>
@@ -1778,7 +1969,7 @@
 
                 <p>
 
-                    <a href="mailto: swamivivekanandgjschool@gmail.com">
+                    <a href="mailto:swamivivekanandgyanjyotischool@gmail.com">
                         swamivivekanandgjschool@gmail.com
                     </a>
 
@@ -1858,7 +2049,1024 @@
     </p>
 
 </footer>
+<!-- =====================================================
+     TALENT EXAM 2026 APPLICATION POPUP
+===================================================== -->
 
+<div id="applicationModal" class="exam-modal">
+
+    <div class="exam-modal-content">
+
+        <!-- SCHOOL HEADER -->
+
+<div class="exam-school-header">
+
+    <div class="exam-school-top">
+
+        <img
+            src="LOGO.jpeg"
+            alt="School Logo"
+            class="exam-school-logo"
+        >
+
+        <div class="exam-school-info">
+
+            <h2>
+                Swami Vivekanand Gyan Jyoti
+                School
+            </h2>
+
+            <h4>
+                KATAICHAWAR, BANAFA - MAU (U.P)
+            <h4>
+
+        </div>
+
+    </div>
+
+    <div class="exam-competition-title">
+        जिला स्तरीय प्रतिभा खोज प्रतियोगिता 
+    </div>
+
+</div>
+
+
+        <button
+            type="button"
+            class="modal-close"
+            onclick="closeApplicationModal()"
+        >×</button>
+
+        <div class="modal-title">
+
+            <span style="
+display:inline-block !important;
+background: #f4cc04; !important;
+color: #1557a6; !important;
+padding:10px 30px !important;
+border:0 !important;
+border-radius:40px !important;
+font-size:24px !important;
+font-weight:800 !important;
+line-height:1.3 !important;
+">
+सोलहवां संस्करण – 2026
+</span>
+        
+
+        </div>
+
+        <div class="exam-info">
+
+            <span>📚 कक्षा 3 से 12</span>
+            <span>💰 शुल्क ₹150</span>
+            <span>📅 22 नवंबर 2026</span>
+            <span>⏰ 11:30 AM – 1:30 PM</span>
+
+        </div>
+
+
+        <form id="competitionForm">
+
+            <label>विद्यार्थी का नाम *</label>
+
+            <input
+                type="text"
+                id="studentName"
+                placeholder="विद्यार्थी का पूरा नाम"
+                required
+            >
+
+
+            <label>पिता का नाम *</label>
+
+            <input
+                type="text"
+                id="fatherName"
+                placeholder="पिता का नाम"
+                required
+            >
+
+
+            <label>माता का नाम *</label>
+
+            <input
+                type="text"
+                id="motherName"
+                placeholder="माता का नाम"
+                required
+            >
+
+
+            <label>विद्यालय का नाम *</label>
+
+            <input
+                type="text"
+                id="schoolName"
+                placeholder="विद्यालय का नाम"
+                required
+            >
+
+
+            <label>कक्षा *</label>
+
+            <select id="className" required>
+
+                <option value="">
+                    कक्षा चुनें
+                </option>
+
+                <option value="3">कक्षा 3</option>
+                <option value="4">कक्षा 4</option>
+                <option value="5">कक्षा 5</option>
+                <option value="6">कक्षा 6</option>
+                <option value="7">कक्षा 7</option>
+                <option value="8">कक्षा 8</option>
+                <option value="9">कक्षा 9</option>
+                <option value="10">कक्षा 10</option>
+                <option value="11">कक्षा 11</option>
+                <option value="12">कक्षा 12</option>
+
+            </select>
+
+
+            <label>पूरा पता *</label>
+
+            <textarea
+                id="address"
+                placeholder="गाँव / मोहल्ला, पोस्ट, जिला आदि"
+                required
+            ></textarea>
+
+
+            <label>मोबाइल नंबर *</label>
+
+            <input
+                type="tel"
+                id="mobile"
+                maxlength="10"
+                pattern="[0-9]{10}"
+                placeholder="10 अंकों का मोबाइल नंबर"
+                required
+            >
+
+
+            <label>विद्यार्थी की फोटो *</label>
+
+            <input
+                type="file"
+                id="studentPhoto"
+                accept="image/*"
+                required
+            >
+
+
+            <!-- PAYMENT -->
+
+            <div class="payment-area">
+
+                <h3>💳 आवेदन शुल्क ₹150</h3>
+
+                <p>
+                    नीचे दिए गए QR Code पर ₹150 का भुगतान करें।
+                </p>
+
+                <img
+                    src="payment-qr.png"
+                    class="payment-qr-image"
+                    alt="Payment QR Code"
+                >
+
+                <p>
+                    भुगतान करने के बाद
+                    Payment Screenshot upload करें।
+                </p>
+
+            </div>
+
+
+            <label>Payment Screenshot *</label>
+
+            <input
+                type="file"
+                id="paymentScreenshot"
+                accept="image/*"
+                required
+            >
+
+
+            <button
+                type="submit"
+                id="submitApplication"
+                class="submit-application-btn"
+            >
+                📝 आवेदन जमा करें
+            </button>
+
+        </form>
+
+
+        <div
+            id="applicationResult"
+            class="application-result"
+            style="display:none;"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     POPUP CSS
+===================================================== -->
+
+<style>
+
+.exam-modal {
+
+    display: none;
+
+    position: fixed;
+
+    z-index: 99999;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow-y: auto;
+
+    background: rgba(0,0,0,.75);
+
+    padding: 25px 15px;
+
+}
+
+.exam-modal-content {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 700px;
+
+    margin: 20px auto;
+
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.35);
+
+}
+
+.modal-close {
+
+    position: absolute;
+
+    right: 15px;
+    top: 10px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #eee;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+}
+
+.modal-title {
+
+    text-align: center;
+
+}
+
+.modal-title h2 {
+
+    color: #0b3d91;
+
+    margin-bottom: 5px;
+
+}
+
+.exam-info {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin: 20px 0;
+
+}
+
+.exam-info span {
+
+    background: #f1f5ff;
+
+    padding: 8px 10px;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+#competitionForm label {
+
+    display: block;
+
+    margin-top: 15px;
+
+    margin-bottom: 6px;
+
+    font-weight: 600;
+
+}
+
+#competitionForm input,
+#competitionForm select,
+#competitionForm textarea {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+}
+
+#competitionForm textarea {
+
+    min-height: 90px;
+
+    resize: vertical;
+
+}
+
+.payment-area {
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    background: #fff8e1;
+
+    border: 2px dashed #e0a800;
+
+    border-radius: 12px;
+
+}
+
+.payment-qr-image {
+
+    display: block;
+
+    width: 230px;
+
+    max-width: 80%;
+
+    margin: 15px auto;
+
+}
+
+.submit-application-btn {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: linear-gradient(
+        135deg,
+        #0b3d91,
+        #1976d2
+    );
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+.application-result {
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    background: #e8f5e9;
+
+    border-radius: 10px;
+
+    color: #155724;
+
+}
+
+@media(max-width:600px) {
+
+    .exam-modal-content {
+
+        padding: 20px;
+
+        margin: 5px auto;
+
+    }
+
+}
+
+
+/* SCHOOL HEADER */
+
+.exam-school-header {
+
+    margin: -30px -30px 25px -30px;
+
+    background: linear-gradient(
+        135deg,
+        #0878d1,
+        #0054a6
+    );
+
+    color: white;
+
+    border-radius: 18px 18px 0 0;
+
+    overflow: hidden;
+}
+
+
+.exam-school-top {
+
+    min-height: 125px;
+
+    padding: 18px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 22px;
+}
+
+
+.exam-school-logo {
+
+    width: 82px;
+
+    height: 82px;
+
+    border-radius: 50%;
+
+    object-fit: contain;
+
+    background: white;
+
+    border: 3px solid #ffd740;
+
+    flex-shrink: 0;
+}
+
+
+.exam-school-info {
+
+    text-align: center;
+}
+
+
+.exam-school-info h2 {
+
+    margin: 0;
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 27px;
+
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+
+.exam-school-info p {
+
+    margin: 8px 0 0;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+
+.exam-competition-title {
+
+    padding: 13px 15px;
+
+    background: #075ca8;
+
+    border-top: 3px solid #ffd740;
+
+    color: white;
+
+    text-align: center;
+
+    font-size: 23px;
+
+    font-weight: 800;
+
+    line-height: 1.4;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .exam-school-header {
+
+        margin: -20px -20px 20px -20px;
+    }
+
+    .exam-school-top {
+
+        min-height: 100px;
+
+        padding: 14px 10px;
+
+        gap: 10px;
+    }
+
+    .exam-school-logo {
+
+        width: 62px;
+
+        height: 62px;
+    }
+
+    .exam-school-info h2 {
+
+        font-size: 18px;
+
+        line-height: 1.2;
+    }
+
+    .exam-school-info p {
+
+        font-size: 9px;
+
+        margin-top: 5px;
+    }
+
+    .exam-competition-title {
+
+        padding: 9px 6px;
+
+        font-size: 15px;
+
+        line-height: 1.35;
+    }
+}
+
+
+
+  /* ================= TALENT SEARCH ================= */
+
+        .talent {
+            color: white;
+
+            background:
+                linear-gradient(rgba(3,35,70,.72), rgba(3,35,70,.78)),
+                url("baground3.jpeg")
+                center /cover no-repeat;
+
+            background-attachment: fixed;
+        }
+
+        .talent .section-title h2 {
+            color: #ffd740;
+            border-color: #ff9800;
+        }
+
+        .talent .section-title p {
+            color: white;
+        }
+
+        .talent-box {
+            max-width: 950px;
+            margin: auto;
+            background: rgba(255,255,255,.10);
+            border: 1px solid rgba(255,255,255,.30);
+            padding: 38px;
+            border-radius: 18px;
+            text-align: center;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,.25);
+        }
+
+        .talent-box h3 {
+            font-size: 49px;
+            color: #ffd740;
+            margin-bottom: 15px;
+        }
+
+        .talent-box > p {
+            font-size: 17px;
+            margin-bottom: 25px;
+        }
+
+        /* NEW LIMITED POINTS */
+ 
+        .talent-points {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            text-align: center;
+        }
+
+.talent-points div {
+    padding: 20px 15px;
+    border: 2px solid rgba(255,215,64,.85);
+    border-radius: 12px;
+
+    /* 2nd photo जैसा उभरा हुआ effect */
+    background: rgba(255,255,255,.14);
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.35),
+        inset 0 1px 2px rgba(255,255,255,.25);
+
+    font-size: 16px;
+    font-weight: 400;
+    transition: .3s;
+}
+
+.talent-points div:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 14px 28px rgba(0,0,0,.45),
+        inset 0 1px 3px rgba(255,255,255,.3);
+}
+     
+
+
+/* ================= HOME TALENT BUTTON ================= */
+
+.home-talent-card {
+    margin: 25px auto 0;
+    padding: 18px 20px;
+
+    max-width: 650px;
+
+    border: 2px solid #d7b91e;
+    border-radius: 22px;
+
+    background: rgba(3, 52, 100, 0.90);
+
+    text-align: center;
+}
+
+.home-talent-btn {
+    border: none;
+    border-radius: 35px;
+
+    padding: 14px 30px;
+
+    background: #ffae00;
+    color: white;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 550px) {
+
+    .home-talent-card {
+        margin-top: 20px;
+        padding: 14px 10px;
+        border-radius: 18px;
+    }
+
+    .home-talent-btn {
+        width: 100%;
+        font-size: 15px;
+        padding: 12px 10px;
+    }
+}
+
+
+</style>
+
+
+<!-- =====================================================
+     POPUP JAVASCRIPT
+===================================================== -->
+
+<script>
+
+function openApplicationModal() {
+
+    document.getElementById(
+        "applicationModal"
+    ).style.display = "block";
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+function closeApplicationModal() {
+
+    document.getElementById(
+        "applicationModal"
+    ).style.display = "none";
+
+    document.body.style.overflow = "";
+
+}
+
+
+window.addEventListener(
+    "click",
+    function(event) {
+
+        const modal =
+            document.getElementById(
+                "applicationModal"
+            );
+
+        if (event.target === modal) {
+
+            closeApplicationModal();
+
+        }
+
+    }
+);
+
+const GOOGLE_SCRIPT_URL =
+ "https://script.google.com/macros/s/AKfycbxS0YzHXbmOwgipBBpa16eEYPq9UuZMgVpQ-oV_uXclBUhcmvHpXUXsKP5YJmx34Idafg/exec";
+
+
+function fileToBase64(file) {
+
+    return new Promise((resolve, reject) => {
+
+        const reader = new FileReader();
+
+        reader.onload = () => resolve(reader.result);
+
+        reader.onerror = error => reject(error);
+
+        reader.readAsDataURL(file);
+
+    });
+
+}
+
+
+document
+.getElementById("competitionForm")
+.addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+
+    const button =
+        document.getElementById("submitApplication");
+
+
+    button.disabled = true;
+
+    button.innerText =
+        "⏳ आवेदन जमा हो रहा है...";
+
+
+    try {
+
+        const photo =
+            document
+            .getElementById("studentPhoto")
+            .files[0];
+
+
+        const payment =
+            document
+            .getElementById("paymentScreenshot")
+            .files[0];
+
+
+        if (!photo || !payment) {
+
+            alert(
+                "Student Photo और Payment Screenshot दोनों upload करें।"
+            );
+
+            return;
+
+        }
+
+
+        const studentPhoto =
+            await fileToBase64(photo);
+
+
+        const paymentScreenshot =
+            await fileToBase64(payment);
+
+
+        const data = {
+
+            studentName:
+                document
+                .getElementById("studentName")
+                .value
+                .trim(),
+
+            fatherName:
+                document
+                .getElementById("fatherName")
+                .value
+                .trim(),
+
+            motherName:
+                document
+                .getElementById("motherName")
+                .value
+                .trim(),
+
+            schoolName:
+                document
+                .getElementById("schoolName")
+                .value
+                .trim(),
+
+            className:
+                document
+                .getElementById("className")
+                .value,
+
+            address:
+                document
+                .getElementById("address")
+                .value
+                .trim(),
+
+            mobile:
+                document
+                .getElementById("mobile")
+                .value
+                .trim(),
+
+            studentPhoto:
+                studentPhoto,
+
+            paymentScreenshot:
+                paymentScreenshot
+
+        };
+
+
+        const response =
+            await fetch(
+                GOOGLE_SCRIPT_URL,
+                {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "text/plain;charset=utf-8"
+                    },
+
+                    body:
+                        JSON.stringify(data)
+
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (!result.success) {
+
+            throw new Error(
+                result.error ||
+                "Application submit नहीं हुआ।"
+            );
+
+        }
+
+
+        document
+        .getElementById("applicationResult")
+        .style.display = "block";
+
+
+        document
+        .getElementById("applicationResult")
+        .innerHTML = `
+
+            <h3>
+                ✅ आवेदन सफलतापूर्वक जमा हो गया
+            </h3>
+
+            <p>
+                आपका Application Number:
+            </p>
+
+            <h2>
+                ${result.applicationNumber}
+            </h2>
+
+            <p>
+                इस Application Number को सुरक्षित रखें।
+            </p>
+
+            <p>
+                Admit Card बाद में इसी
+                Application Number और Mobile Number
+                से डाउनलोड किया जा सकेगा।
+            </p>
+
+        `;
+
+
+        document
+        .getElementById("competitionForm")
+        .reset();
+
+
+    } catch(error) {
+
+        console.error(error);
+
+        alert(
+            "Application submit नहीं हुआ।\n\n" +
+            error.message
+        );
+
+    } finally {
+
+        button.disabled = false;
+
+        button.innerText =
+            "📝 आवेदन जमा करें";
+
+    }
+
+});
+
+
+</script>
 
 </body>
 </html>
