@@ -222,6 +222,79 @@
 }
 
 
+        /* ================= DESKTOP NOTICE LAYOUT ================= */
+
+.form-notice {
+    width: calc(100% - 30px);
+    min-height: 120px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: nowrap;
+    gap: 15px;
+
+    padding: 15px 20px;
+
+    box-sizing: border-box;
+}
+
+/* IMPORTANT NOTICE */
+.notice-important {
+    flex: 0 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* COMPETITION */
+.notice-competition {
+    flex: 0 1 280px;
+    min-width: 220px;
+
+    text-align: center;
+}
+
+/* ONLINE FORM */
+.notice-form {
+    flex: 1 1 auto;
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.notice-form-content {
+    width: 100%;
+    max-width: 650px;
+
+    text-align: center;
+}
+
+.notice-main-text {
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 700;
+
+    text-align: center;
+
+    overflow-wrap: break-word;
+}
+
+.notice-help {
+    margin-top: 8px;
+
+    font-size: 14px;
+    line-height: 1.4;
+
+    text-align: center;
+}
+
 /* ================= IMPORTANT NOTICE ================= */
 
 .notice-important {
@@ -317,7 +390,7 @@
 
 .notice-orange {
     color: red;
-    font-weight: 1000;
+    font-weight: 800;
 }
 /* ================= DATE ================= */
 
@@ -390,19 +463,25 @@
 
     .form-notice {
         width: calc(100% - 12px);
-
-        padding: 10px 7px;
+        padding: 12px 8px;
 
         display: flex;
-        flex-wrap: wrap;
-
-        gap: 8px;
-
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
+
+        gap: 10px;
+        box-sizing: border-box;
     }
 
+    /* IMPORTANT NOTICE */
     .notice-important {
-        flex: 0 0 auto;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex: none;
     }
 
     .notice-icon {
@@ -411,60 +490,97 @@
         flex-basis: 27px;
 
         font-size: 20px;
-        margin-right: 4px;
+        margin-right: 5px;
     }
 
     .notice-title {
-        font-size: 13px;
-        padding: 6px 10px;
+        font-size: 14px;
+        padding: 7px 13px;
+
+        white-space: nowrap;
     }
 
+    /* DIVIDER */
     .notice-divider {
-        width: 2px;
-        height: 27px;
-
-        flex: 0 0 2px;
-        margin: 0 2px;
+        display: none;
     }
 
+    /* COMPETITION */
     .notice-competition {
-        flex: 1 1 auto;
-        min-width: 0;
+        width: 100%;
+        flex: none;
+
+        text-align: center;
     }
 
     .notice-competition .notice-text {
-        font-size: 13px;
-        line-height: 1.35;
+        font-size: 15px;
+        line-height: 1.4;
+
+        text-align: center;
     }
 
+    /* FORM / ONLINE APPLICATION */
     .notice-form {
-        flex: 0 0 100%;
         width: 100%;
+        flex: none;
 
-        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
+
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .notice-form > .notice-icon {
+        margin: 0 0 5px 0;
     }
 
     .notice-form-content {
         width: 100%;
+        max-width: 100%;
+
+        text-align: center;
+        box-sizing: border-box;
     }
 
     .notice-main-text {
-        font-size: 13px;
-        line-height: 1.45;
+        width: 100%;
+
+        font-size: 14px;
+        line-height: 1.55;
+
+        text-align: center;
+
+        overflow-wrap: break-word;
+        word-break: normal;
     }
 
-    .notice-help {
-        margin-top: 5px;
-
-        font-size: 11px;
-        line-height: 1.4;
-
-        padding: 0 4px;
+    .notice-orange {
+        color: red;
+        font-weight: 900;
     }
 
     .notice-date {
-        white-space: nowrap;
+        color: blueviolet;
+        font-weight: 900;
+
+        white-space: normal;
+    }
+
+    .notice-help {
+        width: 100%;
+
+        margin-top: 8px;
+        padding: 0 5px;
+
+        font-size: 12px;
+        line-height: 1.5;
+
+        text-align: center;
+        box-sizing: border-box;
     }
 
     .desktop-break {
@@ -478,37 +594,49 @@
 @media (max-width: 400px) {
 
     .form-notice {
+        width: calc(100% - 8px);
         padding: 8px 5px;
         gap: 6px;
     }
 
-    .notice-icon {
-        width: 24px;
-        height: 24px;
-        flex-basis: 24px;
-
-        font-size: 18px;
-    }
-
     .notice-title {
         font-size: 12px;
-        padding: 5px 8px;
+        padding: 6px 9px;
     }
 
-    .notice-competition .notice-text,
+    .notice-icon {
+        width: 25px;
+        height: 25px;
+        flex-basis: 25px;
+
+        font-size: 18px;
+        margin-right: 3px;
+    }
+
+    .notice-competition .notice-text {
+        font-size: 13px;
+        line-height: 1.35;
+    }
+
     .notice-main-text {
-        font-size: 12px;
+        font-size: 13px;
+        line-height: 1.45;
     }
 
     .notice-help {
         font-size: 10px;
+        line-height: 1.4;
+        padding: 0 3px;
     }
 
-    .notice-divider {
-        height: 24px;
+    .notice-date {
+        white-space: normal;
+    }
+
+    .desktop-break {
+        display: none;
     }
 }
-
 
 
 
