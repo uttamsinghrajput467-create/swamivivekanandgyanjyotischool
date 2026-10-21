@@ -22,7 +22,6 @@
         }
 
         /* ================= HEADER ================= */
-
         header {
             background: linear-gradient(135deg, #063970, #0b5fa5);
             color: white;
@@ -114,53 +113,102 @@
             background: #ff9800;
         }
 
-        /* ================= HERO ================= */
+       /* ================= HERO ================= */
 
-        .hero {
-            min-height: 570px;
+.hero {
+    position: relative;
+    min-height: 570px;
 
-            background:
-                linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.55)),
-                url("baground3.png")
-                center/ cover no-repeat;
+    background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.55)),
+        url("baground3.png") center / cover 
+        no-repeat;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 50px;
-        }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 30px 15px;
+    box-sizing: border-box;
+}
 
-        .hero-content {
-            max-width: 950px;
-        }
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 950px;
+}
 
-        .hero-content h1 {
-            font-family: Arial, sans-serif;
-            font-size: 47px;
-            margin-bottom: 8px;
-        }
+.hero-content h1 {
+    font-family: Arial, sans-serif;
+    font-size: clamp(15px, 2.5vw, 30px);
+    line-height: 1.2;
+    margin: 0 0 3px;
+}
 
-        .hero-content h2 {
-            font-size: 34px;
-            color: #ffd740;
-            margin-bottom: 25px;
-        }
+.hero-content h2 {
+    font-size: clamp(22px, 3vw, 32px);
+    color: #ffd740;
+    line-height: 1.3;
+    margin: 3px 0 18px;
+}
 
-        .admission {
-            display: inline-block;
-            padding: 15px 35px;
-            background: #ff9800;
-            color: white;
-            border-radius: 35px;
-            font-size: 24px;
-            font-weight: bold;
-            box-shadow: 0 5px 20px rgba(0,0,0,.3);
-            animation: pulse 2s infinite;
-        }
+/* Festival: same school photo background */
+#festivalBanner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 900px;
+    padding: 8px 10px;
+    margin: 0 auto 8px;
+    box-sizing: border-box;
+    text-align: center;
 
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
 
+#festivalBanner[hidden] {
+    display: none !important;
+}
+
+#festivalEmoji {
+    font-size: 28px;
+}
+
+#festivalTitle {
+    color: #ffe082;
+    font-size: clamp(20px, 3vw, 30px);
+    margin: 3px 0;
+    text-shadow: 2px 2px 5px #000;
+}
+
+#festivalMessage {
+    color: white;
+    font-size: clamp(14px, 2vw, 19px);
+    margin: 3px 0;
+    text-shadow: 2px 2px 5px #000;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .hero {
+        min-height: 500px;
+        padding: 25px 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 15px;
+    }
+
+    .hero-content h2 {
+        font-size: 23px;
+    }
+}
 
      /* ================= IMPORTANT NOTICE ================= */
 
@@ -1670,8 +1718,130 @@
     }
 
 }
-  
 
+/* FESTIVAL GREETING ON SCHOOL PHOTO */
+
+#festivalBanner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 15px;
+    text-align: center;
+    z-index: 2;
+    color: white;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.72),
+        transparent
+    );
+    pointer-events: none;
+}
+
+#festivalBanner[hidden] {
+    display: none;
+}
+
+#festivalBanner .festival-emoji {
+    font-size: 35px;
+}
+
+#festivalBanner h2 {
+    color: #ffe36e;
+    font-size: clamp(21px, 4vw, 38px);
+    margin: 5px 0;
+    text-shadow: 2px 2px 5px #000;
+}
+
+#festivalBanner p {
+    font-size: clamp(13px, 2vw, 19px);
+    font-weight: 700;
+    text-shadow: 2px 2px 5px #000;
+}
+
+@media (max-width: 550px) {
+    #festivalBanner {
+        padding: 18px 8px;
+    }
+
+    #festivalBanner .festival-emoji {
+        font-size: 25px;
+    }
+}
+/* ===== DIWALI DECORATION ===== */
+
+#festivalBanner {
+    position: relative;
+    overflow: visible;
+}
+
+/* Left-right decorative crackers */
+#festivalBanner::before,
+#festivalBanner::after {
+    position: absolute;
+    top: 35%;
+    font-size: clamp(24px, 4vw, 42px);
+    animation: diwaliFloat 2s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 8px #ffd700);
+    pointer-events: none;
+}
+
+#festivalBanner::before {
+    content: "🧨✨🎇";
+    left: 2%;
+}
+
+#festivalBanner::after {
+    content: "🎆✨🧨";
+    right: 2%;
+}
+
+/* Floating sparkle effect */
+#festivalTitle {
+    position: relative;
+    animation: diwaliGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes diwaliFloat {
+    from {
+        transform: translateY(-5px) rotate(-5deg);
+    }
+    to {
+        transform: translateY(5px) rotate(5deg);
+    }
+}
+
+@keyframes diwaliGlow {
+    from {
+        text-shadow:
+            2px 3px 0 #8b4513,
+            0 0 8px #ffd700,
+            2px 4px 8px #000;
+    }
+    to {
+        text-shadow:
+            2px 3px 0 #8b4513,
+            0 0 18px #ffeb3b,
+            0 0 25px #ff9800,
+            2px 4px 8px #000;
+    }
+}
+
+/* Mobile screen */
+@media (max-width: 600px) {
+    #festivalBanner::before {
+        left: 0;
+    }
+
+    #festivalBanner::after {
+        right: 0;
+    }
+
+    #festivalBanner::before,
+    #festivalBanner::after {
+        font-size: 17px;
+    }
+}
     </style>
 </head>
 
@@ -1790,7 +1960,7 @@
     <span class="notice-heading">प्रवेश पत्र:─</span>
 
     <span class="notice-normal">
-        परीक्षा में सम्मिलित होने हेतु
+        ऑनलाइन आवेदन करने वाले सभी विधार्थी को परीक्षा में सम्मिलित होने हेतु
         <span class="notice-highlight">प्रवेश पत्र (Admit Card)</span>
         परीक्षा तिथि से एक सप्ताह पूर्व वेबसाइट के
         <span class="notice-highlight">Admit Card</span>
@@ -1810,15 +1980,19 @@
 
 
 
-<!-- ================= FIRST PAGE ================= -->
 
+<!-- Main Home Page -->
 <section class="hero" id="home">
+    <div id="festivalBanner" hidden>
+        <div id="festivalEmoji"></div>
+        <h2 id="festivalTitle"></h2>
+        <p id="festivalMessage"></p>
+    </div>
 
     <div class="hero-content">
 
         <h1>
             SWAMI VIVEKANAND GYAN JYOTI SCHOOL
-            
         </h1>
 
         <h2>
@@ -1826,19 +2000,16 @@
         </h2>
 
         <div class="home-talent-card">
-
-    <button
-        type="button"
-        class="home-talent-btn"
-        onclick="openApplicationModal()"
-    >
-       <h3> 📝 जिला स्तरीय प्रतिभा खोज प्रतियोगिता </h3> <br>
-          <p>का ऑनलाइन आवेदन करने के लिए यहाँ क्लिक करें ।</p>
-    </button>
-
-</div>
-
-      
+            <button
+                type="button"
+                class="home-talent-btn"
+                onclick="openApplicationModal()"
+            >
+                <h3>📝 जिला स्तरीय प्रतिभा खोज प्रतियोगिता</h3>
+                <br>
+                <p>का ऑनलाइन आवेदन करने के लिए यहाँ क्लिक करें।</p>
+            </button>
+        </div>
 
     </div>
 
@@ -2267,7 +2438,7 @@
 
                 <p>
                     प्रबंधक<br>
-                    <strong>(B.Ed)</strong>
+                    <strong>(B.Ed.)</strong>
                 </p>
 
             </div>
@@ -2285,7 +2456,7 @@
 
                 <p>
                     प्रधानाचार्य<br>
-                    <strong>(B.ED)</strong>
+                    <strong>(B.Ed.)</strong>
                 </p>
 
             </div>
@@ -2545,10 +2716,10 @@
 
         <div class="modal-title">
 
-            <span style="
+<span style="
 display:inline-block !important;
-background: #f4cc04; !important;
-color: #1557a6; !important;
+background: #f4cc04 !important;
+color: #1557a6 !important;
 padding:10px 30px !important;
 border:0 !important;
 border-radius:40px !important;
@@ -2556,7 +2727,7 @@ font-size:24px !important;
 font-weight:800 !important;
 line-height:1.3 !important;
 ">
-सोलहवां संस्करण – 2026
+सोलहवाँ संस्करण 🏆 2026
 </span>
         
 
@@ -3598,6 +3769,308 @@ function openUPIPayment() {
         "&cu=INR";
 
     window.location.href = upiLink;
+}
+</script>
+<script>
+/* ===== SCHOOL FESTIVAL & JAYANTI SYSTEM ===== */
+
+const schoolFestivals = {
+    /* ===== EVERY YEAR: FIXED-DATE DAYS ===== */
+
+    "01-01": {
+        title: "नववर्ष",
+        message: "आप सभी को नववर्ष की हार्दिक शुभकामनाएँ",
+        emoji: "🎉"
+    },
+    "01-12": {
+        title: "राष्ट्रीय युवा दिवस",
+        message: "स्वामी विवेकानन्द जयंती की हार्दिक शुभकामनाएँ",
+        emoji: "🙏"
+    },
+    "01-23": {
+        title: "नेताजी सुभाष चन्द्र बोस जयंती",
+        message: "महान स्वतंत्रता सेनानी को सादर नमन",
+        emoji: "🇮🇳"
+    },
+    "01-24": {
+        title: "राष्ट्रीय बालिका दिवस",
+        message: "बेटियों के उज्ज्वल भविष्य की शुभकामनाएँ",
+        emoji: "🌸"
+    },
+    "01-25": {
+        title: "राष्ट्रीय मतदाता दिवस",
+        message: "जागरूक नागरिक, सशक्त लोकतंत्र",
+        emoji: "🗳️"
+    },
+    "01-26": {
+        title: "गणतंत्र दिवस",
+        message: "आप सभी को गणतंत्र दिवस की हार्दिक शुभकामनाएँ",
+        emoji: "🇮🇳"
+    },
+    "02-28": {
+        title: "राष्ट्रीय विज्ञान दिवस",
+        message: "विज्ञान और ज्ञान के प्रति समर्पित रहें",
+        emoji: "🔬"
+    },
+    "03-08": {
+        title: "अंतरराष्ट्रीय महिला दिवस",
+        message: "सभी महिलाओं को हार्दिक शुभकामनाएँ",
+        emoji: "🌸"
+    },
+    "04-07": {
+        title: "विश्व स्वास्थ्य दिवस",
+        message: "स्वस्थ जीवन, उज्ज्वल भविष्य",
+        emoji: "🌿"
+    },
+    "04-14": {
+        title: "डॉ. भीमराव अम्बेडकर जयंती",
+        message: "बाबासाहेब को सादर नमन",
+        emoji: "🙏"
+    },
+    "04-22": {
+        title: "पृथ्वी दिवस",
+        message: "आइए, अपनी पृथ्वी को स्वच्छ और सुरक्षित बनाएँ",
+        emoji: "🌍"
+    },
+    "05-01": {
+        title: "मजदूर दिवस",
+        message: "श्रम और मेहनत को सादर सम्मान",
+        emoji: "👷"
+    },
+    "05-11": {
+        title: "राष्ट्रीय प्रौद्योगिकी दिवस",
+        message: "विज्ञान और तकनीक के विकास को सलाम",
+        emoji: "💻"
+    },
+    "06-05": {
+        title: "विश्व पर्यावरण दिवस",
+        message: "पेड़ लगाएँ, पर्यावरण बचाएँ",
+        emoji: "🌳"
+    },
+    "06-21": {
+        title: "अंतरराष्ट्रीय योग दिवस",
+        message: "योग अपनाएँ, स्वस्थ जीवन पाएँ",
+        emoji: "🧘"
+    },
+    "07-26": {
+        title: "कारगिल विजय दिवस",
+        message: "वीर सैनिकों के बलिदान को सादर नमन",
+        emoji: "🇮🇳"
+    },
+    "08-07": {
+        title: "राष्ट्रीय हथकरघा दिवस",
+        message: "भारतीय कला और संस्कृति को सम्मान",
+        emoji: "🧵"
+    },
+    "08-15": {
+        title: "स्वतंत्रता दिवस",
+        message: "आप सभी को स्वतंत्रता दिवस की हार्दिक शुभकामनाएँ",
+        emoji: "🇮🇳"
+    },
+    "08-29": {
+        title: "राष्ट्रीय खेल दिवस",
+        message: "खेलें, सीखें और आगे बढ़ें",
+        emoji: "🏆"
+    },
+    "09-05": {
+        title: "शिक्षक दिवस",
+        message: "सभी गुरुजनों को सादर प्रणाम",
+        emoji: "📚"
+    },
+    "09-14": {
+        title: "हिंदी दिवस",
+        message: "हिंदी भाषा का सम्मान करें",
+        emoji: "📖"
+    },
+    "10-02": {
+        title: "गांधी जयंती",
+        message: "महात्मा गांधी को सादर नमन",
+        emoji: "🕊️"
+    },
+    "10-31": {
+        title: "राष्ट्रीय एकता दिवस",
+        message: "सरदार वल्लभभाई पटेल को सादर नमन",
+        emoji: "🇮🇳"
+    },
+    "11-11": {
+        title: "राष्ट्रीय शिक्षा दिवस",
+        message: "शिक्षा ही उज्ज्वल भविष्य की कुंजी है",
+        emoji: "📚"
+    },
+    "11-14": {
+        title: "बाल दिवस",
+        message: "सभी बच्चों को बाल दिवस की हार्दिक शुभकामनाएँ",
+        emoji: "🎈"
+    },
+    "11-26": {
+        title: "संविधान दिवस",
+        message: "भारतीय संविधान को सादर नमन",
+        emoji: "📜"
+    },
+    "12-04": {
+        title: "भारतीय नौसेना दिवस",
+        message: "भारतीय नौसेना के वीर जवानों को सलाम",
+        emoji: "⚓"
+    },
+    "12-22": {
+        title: "राष्ट्रीय गणित दिवस",
+        message: "गणित सीखें, नए अवसर खोजें",
+        emoji: "➗"
+    },
+    "12-23": {
+        title: "राष्ट्रीय किसान दिवस",
+        message: "अन्नदाता किसानों को सादर प्रणाम",
+        emoji: "🌾"
+    },
+    "12-25": {
+        title: "क्रिसमस",
+        message: "आप सभी को क्रिसमस की हार्दिक शुभकामनाएँ",
+        emoji: "🎄"
+    },
+
+    /* ===== 2026: DIWALI & CHHATH ===== */
+
+    "11-08": {
+        title: "दीपावली",
+        message: "आप सभी को दीपावली की हार्दिक शुभकामनाएँ",
+        emoji: "🪔"
+    },
+    "11-13": {
+        title: "छठ पूजा — नहाय-खाय",
+        message: "छठ महापर्व की हार्दिक शुभकामनाएँ",
+        emoji: "🙏"
+    },
+    "11-14": {
+        title: "छठ पूजा — खरना",
+        message: "छठी मैया की कृपा सभी पर बनी रहे",
+        emoji: "🌅"
+    },
+    "11-15": {
+        title: "छठ पूजा — संध्या अर्घ्य",
+        message: "छठ महापर्व की हार्दिक शुभकामनाएँ",
+        emoji: "🌞"
+    },
+    "11-16": {
+        title: "छठ पूजा — उषा अर्घ्य",
+        message: "छठी मैया और सूर्य देव को सादर नमन",
+        emoji: "🙏"
+    },
+
+    /* ===== 2027: FESTIVALS ===== */
+
+    "03-06": {
+        title: "महाशिवरात्रि",
+        message: "हर हर महादेव! महाशिवरात्रि की शुभकामनाएँ",
+        emoji: "🔱"
+    },
+    "03-21": {
+        title: "होलिका दहन",
+        message: "आप सभी को होलिका दहन की शुभकामनाएँ",
+        emoji: "🔥"
+    },
+    "03-22": {
+        title: "होली",
+        message: "आप सभी को रंगों के त्योहार होली की शुभकामनाएँ",
+        emoji: "🎨"
+    },
+    "04-07": {
+        title: "चैत्र नवरात्रि प्रारंभ",
+        message: "माता रानी की कृपा सभी पर बनी रहे",
+        emoji: "🙏"
+    },
+    "04-15": {
+        title: "राम नवमी",
+        message: "श्री राम नवमी की हार्दिक शुभकामनाएँ",
+        emoji: "🏹"
+    },
+    "07-19": {
+        title: "सावन मास प्रारंभ एवं पहला सोमवार",
+        message: "हर हर महादेव! सावन की हार्दिक शुभकामनाएँ",
+        emoji: "🔱"
+    },
+    "07-26": {
+        title: "सावन सोमवार",
+        message: "भगवान भोलेनाथ की कृपा बनी रहे",
+        emoji: "🔱"
+    },
+    "08-02": {
+        title: "सावन सोमवार",
+        message: "हर हर महादेव!",
+        emoji: "🔱"
+    },
+    "08-09": {
+        title: "सावन सोमवार",
+        message: "शिव जी सभी की मनोकामनाएँ पूर्ण करें",
+        emoji: "🔱"
+    },
+    "08-16": {
+        title: "सावन सोमवार",
+        message: "भोलेनाथ की भक्ति और आशीर्वाद का पावन दिन",
+        emoji: "🔱"
+    },
+    "08-17": {
+        title: "रक्षाबंधन",
+        message: "रक्षाबंधन के पावन पर्व की हार्दिक शुभकामनाएँ",
+        emoji: "🪢"
+    },
+    "08-25": {
+        title: "श्रीकृष्ण जन्माष्टमी",
+        message: "नंद के आनंद भयो, जय कन्हैया लाल की!",
+        emoji: "🦚"
+    },
+    "09-30": {
+        title: "शारदीय नवरात्रि प्रारंभ",
+        message: "जय माता दी! नवरात्रि की हार्दिक शुभकामनाएँ",
+        emoji: "🙏"
+    },
+    "10-09": {
+        title: "विजयादशमी — दशहरा",
+        message: "बुराई पर अच्छाई की विजय के पर्व की शुभकामनाएँ",
+        emoji: "🏹"
+    },
+    "10-29": {
+        title: "दीपावली",
+        message: "आप सभी को दीपावली की हार्दिक शुभकामनाएँ",
+        emoji: "🪔"
+    },
+    "11-04": {
+        title: "छठ पूजा",
+        message: "छठी मैया की कृपा सभी पर बनी रहे",
+        emoji: "🌅"
+    }
+};
+
+function updateSchoolFestival() {
+    const banner = document.getElementById("festivalBanner");
+    if (!banner) return;
+
+    const now = new Date();
+    const key =
+        String(now.getMonth() + 1).padStart(2, "0") +
+        "-" +
+        String(now.getDate()).padStart(2, "0");
+
+    const festival = schoolFestivals[key];
+
+    if (!festival) {
+        banner.hidden = true;
+        return;
+    }
+
+    document.getElementById("festivalEmoji").textContent =
+        festival.emoji;
+    document.getElementById("festivalTitle").textContent =
+        festival.title;
+    document.getElementById("festivalMessage").textContent =
+        festival.message;
+
+    banner.hidden = false;
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", updateSchoolFestival);
+} else {
+    updateSchoolFestival();
 }
 </script>
 
