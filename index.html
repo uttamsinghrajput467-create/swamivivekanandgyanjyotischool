@@ -912,6 +912,66 @@
             font-size: 15px;
         }
 
+/* ===== TOUR IMAGE CLICK EFFECT ===== */
+
+.tour-card img {
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+.tour-card img:hover {
+    transform: scale(1.03);
+}
+
+/* ===== IMAGE LIGHTBOX ===== */
+
+.tour-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    background: rgba(0, 0, 0, 0.93);
+    align-items: center;
+    justify-content: center;
+    padding: 40px 15px;
+}
+
+.tour-lightbox.active {
+    display: flex;
+}
+
+.tour-lightbox img {
+    max-width: 95%;
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 5px 30px rgba(255,255,255,0.15);
+}
+
+.tour-lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: white;
+    font-size: 38px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+@media(max-width: 600px) {
+    .tour-lightbox img {
+        max-width: 100%;
+        max-height: 80vh;
+    }
+
+    .tour-lightbox-close {
+        top: 8px;
+        right: 15px;
+    }
+}
+
+
       
 /* ================= TALENT EXAM 2026 ================= */
 
@@ -2600,6 +2660,34 @@
 
 </section>
 
+<!-- ===== TOUR IMAGE LIGHTBOX ===== -->
+
+<div class="tour-lightbox" id="tourLightbox">
+
+    <button class="tour-lightbox-close"
+        onclick="closeTourImage()">
+        &times;
+    </button>
+
+    <img id="tourLightboxImage" src="" alt="Tour Image">
+
+</div>
+
+<!-- ===== TOUR IMAGE LIGHTBOX ===== -->
+<div class="tour-lightbox" id="tourLightbox">
+
+  <button class="tour-lightbox-close"
+          onclick="closeTourImage()">&times;</button>
+
+  <button class="tour-lightbox-arrow tour-lightbox-prev"
+          onclick="changeTourImage(-1)">&#10094;</button>
+
+  <img id="tourLightboxImage" src="" alt="Tour Image">
+
+  <button class="tour-lightbox-arrow tour-lightbox-next"
+          onclick="changeTourImage(1)">&#10095;</button>
+
+</div>
 
 <!-- ================= FOOTER ================= -->
 
@@ -3489,6 +3577,98 @@ line-height:1.3 !important;
     }
 }
 
+/* ===== TOUR IMAGE CLICK ===== */
+.tour-card img {
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+.tour-card img:hover {
+  transform: scale(1.03);
+}
+
+/* ===== TOUR LIGHTBOX ===== */
+.tour-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: rgba(0,0,0,0.95);
+  align-items: center;
+  justify-content: center;
+  padding: 40px 15px;
+}
+
+.tour-lightbox.active {
+  display: flex;
+}
+
+#tourLightboxImage {
+  max-width: 90%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+  transform-origin: center center;
+  touch-action: none;
+}
+
+.tour-lightbox-close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: white;
+  font-size: 38px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  z-index: 20;
+}
+
+.tour-lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.18);
+  color: white;
+  border: none;
+  font-size: 35px;
+  width: 50px;
+  height: 60px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.tour-lightbox-prev {
+  left: 20px;
+}
+
+.tour-lightbox-next {
+  right: 20px;
+}
+
+@media(max-width:600px) {
+  #tourLightboxImage {
+    max-width: 100%;
+    max-height: 80vh;
+  }
+
+  .tour-lightbox-arrow {
+    width: 38px;
+    height: 48px;
+    font-size: 27px;
+  }
+
+  .tour-lightbox-prev { left: 8px; }
+  .tour-lightbox-next { right: 8px; }
+
+  .tour-lightbox-close {
+    top: 8px;
+    right: 15px;
+  }
+}
 
 </style>
 
@@ -4072,6 +4252,272 @@ if (document.readyState === "loading") {
 } else {
     updateSchoolFestival();
 }
+
+// ===== TOUR IMAGE OPEN / CLOSE =====
+
+document.querySelectorAll(".tour-card img").forEach(img => {
+
+    img.addEventListener("click", function() {
+
+        document.getElementById("tourLightboxImage").src =
+            this.src;
+
+        document.getElementById("tourLightbox")
+            .classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+function closeTourImage() {
+
+    document.getElementById("tourLightbox")
+        .classList.remove("active");
+
+    document.getElementById("tourLightboxImage").src = "";
+
+    document.body.style.overflow = "";
+
+}
+
+// Background पर क्लिक करने से बंद
+
+document.getElementById("tourLightbox")
+.addEventListener("click", function(event) {
+
+    if (event.target === this) {
+        closeTourImage();
+    }
+
+});
+
+// ESC से बंद
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeTourImage();
+    }
+
+});
+// ===== TOUR IMAGE SLIDER + ZOOM =====
+
+const tourImages = Array.from(
+  document.querySelectorAll(".tour-card img")
+);
+
+const tourLightbox = document.getElementById("tourLightbox");
+const tourLightboxImage = document.getElementById("tourLightboxImage");
+
+let currentTourIndex = 0;
+let tourZoom = 1;
+let tourPanX = 0;
+let tourPanY = 0;
+
+function updateTourZoom() {
+  tourLightboxImage.style.transform =
+    `translate(${tourPanX}px, ${tourPanY}px) scale(${tourZoom})`;
+
+  tourLightboxImage.style.cursor =
+    tourZoom > 1 ? "grab" : "zoom-in";
+}
+
+function resetTourZoom() {
+  tourZoom = 1;
+  tourPanX = 0;
+  tourPanY = 0;
+  updateTourZoom();
+}
+
+function updateTourArrows() {
+  document.querySelector(".tour-lightbox-prev").style.display =
+    currentTourIndex === 0 ? "none" : "block";
+
+  document.querySelector(".tour-lightbox-next").style.display =
+    currentTourIndex === tourImages.length - 1 ? "none" : "block";
+}
+
+function openTourImage(index) {
+  currentTourIndex = index;
+
+  tourLightboxImage.src = tourImages[index].src;
+  tourLightbox.classList.add("active");
+  document.body.style.overflow = "hidden";
+
+  resetTourZoom();
+  updateTourArrows();
+}
+
+tourImages.forEach((img, index) => {
+  img.style.cursor = "zoom-in";
+
+  img.addEventListener("click", function() {
+    openTourImage(index);
+  });
+});
+
+function changeTourImage(direction) {
+  const nextIndex = currentTourIndex + direction;
+
+  if (nextIndex < 0 || nextIndex >= tourImages.length) return;
+
+  currentTourIndex = nextIndex;
+  tourLightboxImage.src = tourImages[currentTourIndex].src;
+
+  resetTourZoom();
+  updateTourArrows();
+}
+
+function closeTourImage() {
+  tourLightbox.classList.remove("active");
+  tourLightboxImage.src = "";
+  document.body.style.overflow = "";
+  resetTourZoom();
+}
+
+// Outside click to close
+tourLightbox.addEventListener("click", function(event) {
+  if (event.target === tourLightbox) {
+    closeTourImage();
+  }
+});
+
+// Keyboard controls
+document.addEventListener("keydown", function(event) {
+  if (!tourLightbox.classList.contains("active")) return;
+
+  if (event.key === "Escape") closeTourImage();
+
+  if (event.key === "ArrowRight") changeTourImage(1);
+
+  if (event.key === "ArrowLeft") changeTourImage(-1);
+});
+
+// ===== MOUSE WHEEL ZOOM =====
+tourLightboxImage.addEventListener("wheel", function(event) {
+  event.preventDefault();
+
+  tourZoom += event.deltaY < 0 ? 0.2 : -0.2;
+  tourZoom = Math.min(Math.max(tourZoom, 1), 4);
+
+  if (tourZoom === 1) {
+    tourPanX = 0;
+    tourPanY = 0;
+  }
+
+  updateTourZoom();
+}, { passive: false });
+
+// ===== DOUBLE CLICK ZOOM =====
+tourLightboxImage.addEventListener("dblclick", function() {
+  tourZoom = tourZoom === 1 ? 2 : 1;
+  tourPanX = 0;
+  tourPanY = 0;
+  updateTourZoom();
+});
+
+// ===== MOBILE PINCH + DRAG ZOOM =====
+let tourPointers = new Map();
+let pinchStartDistance = 0;
+let pinchStartZoom = 1;
+let dragStartX = 0;
+let dragStartY = 0;
+let startPanX = 0;
+let startPanY = 0;
+let lastTapTime = 0;
+
+function getTourDistance(a, b) {
+  return Math.hypot(a.x - b.x, a.y - b.y);
+}
+
+tourLightboxImage.addEventListener("pointerdown", function(event) {
+  event.preventDefault();
+  tourLightboxImage.setPointerCapture(event.pointerId);
+
+  tourPointers.set(event.pointerId, {
+    x: event.clientX,
+    y: event.clientY
+  });
+
+  if (tourPointers.size === 2) {
+    const points = Array.from(tourPointers.values());
+    pinchStartDistance = getTourDistance(points[0], points[1]);
+    pinchStartZoom = tourZoom;
+  } else if (tourPointers.size === 1) {
+    const now = Date.now();
+
+    if (now - lastTapTime < 300) {
+      tourZoom = tourZoom === 1 ? 2 : 1;
+      tourPanX = 0;
+      tourPanY = 0;
+      updateTourZoom();
+    }
+
+    lastTapTime = now;
+
+    dragStartX = event.clientX;
+    dragStartY = event.clientY;
+    startPanX = tourPanX;
+    startPanY = tourPanY;
+  }
+});
+
+tourLightboxImage.addEventListener("pointermove", function(event) {
+  if (!tourPointers.has(event.pointerId)) return;
+
+  tourPointers.set(event.pointerId, {
+    x: event.clientX,
+    y: event.clientY
+  });
+
+  if (tourPointers.size === 2) {
+    const points = Array.from(tourPointers.values());
+    const distance = getTourDistance(points[0], points[1]);
+
+    if (pinchStartDistance > 0) {
+      tourZoom = Math.min(
+        Math.max(
+          pinchStartZoom * distance / pinchStartDistance,
+          1
+        ),
+        4
+      );
+
+      if (tourZoom === 1) {
+        tourPanX = 0;
+        tourPanY = 0;
+      }
+
+      updateTourZoom();
+    }
+  } else if (tourPointers.size === 1 && tourZoom > 1) {
+    tourPanX = startPanX + event.clientX - dragStartX;
+    tourPanY = startPanY + event.clientY - dragStartY;
+    updateTourZoom();
+  }
+});
+
+function endTourPointer(event) {
+  tourPointers.delete(event.pointerId);
+
+  if (tourPointers.size < 2) {
+    pinchStartDistance = 0;
+  }
+
+  if (tourPointers.size === 1) {
+    const point = Array.from(tourPointers.values())[0];
+    dragStartX = point.x;
+    dragStartY = point.y;
+    startPanX = tourPanX;
+    startPanY = tourPanY;
+  }
+}
+
+tourLightboxImage.addEventListener("pointerup", endTourPointer);
+tourLightboxImage.addEventListener("pointercancel", endTourPointer);
+
 </script>
 
 </body>
