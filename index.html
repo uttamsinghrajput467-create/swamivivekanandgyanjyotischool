@@ -2661,19 +2661,6 @@
 </section>
 
 <!-- ===== TOUR IMAGE LIGHTBOX ===== -->
-
-<div class="tour-lightbox" id="tourLightbox">
-
-    <button class="tour-lightbox-close"
-        onclick="closeTourImage()">
-        &times;
-    </button>
-
-    <img id="tourLightboxImage" src="" alt="Tour Image">
-
-</div>
-
-<!-- ===== TOUR IMAGE LIGHTBOX ===== -->
 <div class="tour-lightbox" id="tourLightbox">
 
   <button class="tour-lightbox-close"
@@ -4252,56 +4239,6 @@ if (document.readyState === "loading") {
 } else {
     updateSchoolFestival();
 }
-
-// ===== TOUR IMAGE OPEN / CLOSE =====
-
-document.querySelectorAll(".tour-card img").forEach(img => {
-
-    img.addEventListener("click", function() {
-
-        document.getElementById("tourLightboxImage").src =
-            this.src;
-
-        document.getElementById("tourLightbox")
-            .classList.add("active");
-
-        document.body.style.overflow = "hidden";
-
-    });
-
-});
-
-function closeTourImage() {
-
-    document.getElementById("tourLightbox")
-        .classList.remove("active");
-
-    document.getElementById("tourLightboxImage").src = "";
-
-    document.body.style.overflow = "";
-
-}
-
-// Background पर क्लिक करने से बंद
-
-document.getElementById("tourLightbox")
-.addEventListener("click", function(event) {
-
-    if (event.target === this) {
-        closeTourImage();
-    }
-
-});
-
-// ESC से बंद
-
-document.addEventListener("keydown", function(event) {
-
-    if (event.key === "Escape") {
-        closeTourImage();
-    }
-
-});
 // ===== TOUR IMAGE SLIDER + ZOOM =====
 
 const tourImages = Array.from(
